@@ -1,0 +1,40 @@
+# ======================================================================================
+# Springboot DB設置 (Redis & Postgre)
+# ======================================================================================
+spring:
+   application:
+      name: gamehour
+   mvc:
+      static-path-pattern: /swagger*
+   datasource:
+      driver-class-name: org.postgresql.Driver
+      username: postgres
+      password: A123B456
+      url: jdbc:postgresql://192.168.74.21:5432/student
+      minimum-idle: 5        
+      maximum-pool-size: 10
+      maxLifetime: 2000
+   data:
+      redis:
+         host: 127.0.0.1
+         port: 6379
+         password:
+         timeout: 50000
+
+# ======================================================================================
+# Swaggar設置
+# ======================================================================================
+springdoc:
+    api-docs:
+        path: /api-docs
+    swagger-ui:
+        path: /swagger-ui.html
+        display-request-duration: true                
+        
+# ======================================================================================
+# ContextPath      
+# ======================================================================================
+server:
+   servlet:
+      context-path: /
+
