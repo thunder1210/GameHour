@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.thunder.gamehour.dao.mapper.MemberMapper">
+<mapper
+	namespace="com.thunder.gamehour.dao.mapper.GameRoomMapper">
 
-	<!-- 創建新會員 -->
-	<insert id="createNewMember"
-		parameterType="com.thunder.gamehour.dao.model.Member">
-		INSERT INTO MEMBER (MEMBER_ACCOUNT, MEMBER_PASSWORD,
-		MEMBER_GENDER, MEMBER_NAME, MEMBER_ONLINE_STATUS, FAVORITE_GAME_TYPE,
-		MEMBER_CURRENT_ROOM)
+	<!-- 創建遊戲房間 -->
+	<insert id="createGameRoom"
+		parameterType="com.thunder.gamehour.dao.model.GameRoom">
+		INSERT INTO GAME_ROOM (ROOM_NAME,
+		GAME_NAME,
+		PLATFORM,
+		HOST)
 		VALUES
-		(#{MEMBER.MEMBERACCOUNT},
-		#{MEMBER.MEMBERPASSWORD},
-		#{MEMBER.MEMBERGENDER},
-		#{MEMBER.MEMBERNAME},
-		#{MEMBER.MEMBERONLINESTATUS}, #{MEMBER.FAVORITEGAMETYPE},
-		#{MEMBER.MEMBER_CURRENT_ROOM});
+		(#{gameRoom.roomName},
+		#{gameRoom.gameName},
+		#{gameRoom.platform},
+		#{gameRoom.host});
 	</insert>
 
 	<!-- 查詢正在線上的會員 -->
-	<select id="getOnlineMembers"
-		resultType="com.thunder.gamehour.dao.model.Member">
-		SELECT MEMBER_ID, MEMBER_ACCOUNT, MEMBER_PASSWORD,
-		MEMBER_GENDER,
-		MEMBER_NAME, MEMBER_ONLINE_STATUS, FAVORITE_GAME_TYPE,
-		MEMBER_CURRENT_ROOM
-		FROM MEMBER
-		ORDER BY MEMBER_ID
+	<select id="getAllGameRooms"
+		resultType="com.thunder.gamehour.dao.model.GameRoom">
+		SELECT ID, ROOM_NAME,
+		GAME_NAME,
+		PLATFORM,
+		HOST
+		FROM GAME_ROOM
+		ORDER BY
+		ID
 	</select>
 
 </mapper>

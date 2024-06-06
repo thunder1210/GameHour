@@ -9,12 +9,12 @@
 		MEMBER_GENDER, MEMBER_NAME, MEMBER_ONLINE_STATUS, FAVORITE_GAME_TYPE,
 		MEMBER_CURRENT_ROOM)
 		VALUES
-		(#{MEMBER.MEMBERACCOUNT},
-		#{MEMBER.MEMBERPASSWORD},
-		#{MEMBER.MEMBERGENDER},
-		#{MEMBER.MEMBERNAME},
-		#{MEMBER.MEMBERONLINESTATUS}, #{MEMBER.FAVORITEGAMETYPE},
-		#{MEMBER.MEMBER_CURRENT_ROOM});
+		(#{member.memberAccount},
+		#{member.memberPassword},
+		#{member.memberGender},
+		#{member.memberName},
+		#{member.memberOnlineStatus}, #{member.favoriteGameType},
+		#{member.memberCurrentRoom});
 	</insert>
 
 	<!-- 查詢正在線上的會員 -->

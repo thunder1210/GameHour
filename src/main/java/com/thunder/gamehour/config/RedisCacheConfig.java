@@ -11,6 +11,8 @@ import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSeriali
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
+import com.thunder.gamehour.systemconst.SystemConst;
+
 /**
  * 設置Springboot Redis緩存機制
  */
@@ -19,12 +21,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 public class RedisCacheConfig {
 
 	/**
-	 * 緩存到期時間
-	 */
-	private static final int CACHE_TTL_TIME = 6000000;
-
-	/**
-	 * CacheManager
+	 * 緩存管理設置
 	 * 
 	 * @param redisConnectionFactory
 	 * @return RedisCacheManager
@@ -32,7 +29,7 @@ public class RedisCacheConfig {
 	@Bean
 	CacheManager cacheManager(RedisConnectionFactory redisConnectionFactory) {
 		RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
-				.entryTtl(java.time.Duration.ofMinutes(CACHE_TTL_TIME))
+				.entryTtl(java.time.Duration.ofMinutes(SystemConst.CACHE_TTL_TIME))
 				.serializeKeysWith(
 						RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer()))
 				.serializeValuesWith(RedisSerializationContext.SerializationPair

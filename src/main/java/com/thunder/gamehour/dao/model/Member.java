@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * 會員資料物件
+ * 會員資料
  */
 @Getter
 @Setter
@@ -38,7 +38,7 @@ public class Member {
 	/**
 	 * 會員在線狀態
 	 */
-	private String memberOnlineStatus;
+	private Boolean memberOnlineStatus;
 
 	/**
 	 * 會員當前所在房間
