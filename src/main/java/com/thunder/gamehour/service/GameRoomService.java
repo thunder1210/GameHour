@@ -26,6 +26,24 @@ public class GameRoomService {
 	}
 
 	/**
+	 * 創建限時遊戲房間
+	 * 
+	 * @param member 限時遊戲房資料
+	 */
+	public void createLimetedGameRoom(GameRoom gameRoom) {
+		gameRoomMapper.createGameRoom(gameRoom);
+	}
+
+	/**
+	 * 刪除遊戲房間
+	 * 
+	 * @param gameRoom 遊戲房ID
+	 */
+	public void deleteGameRoom(int gameRoomId) {
+		gameRoomMapper.deleteGameRoom(gameRoomId);
+	}
+
+	/**
 	 * 查詢所有線上遊戲房間
 	 * 
 	 * @return 遊戲房間List

@@ -9,13 +9,20 @@
 		INSERT INTO GAME_ROOM (ROOM_NAME,
 		GAME_NAME,
 		PLATFORM,
-		HOST)
+		HOST, IS_TIME_LIMITED)
 		VALUES
 		(#{gameRoom.roomName},
 		#{gameRoom.gameName},
 		#{gameRoom.platform},
-		#{gameRoom.host});
+		#{gameRoom.host},
+		#{gameRoom.isTimeLimited});
 	</insert>
+
+	<!-- 刪除特定遊戲房間 -->
+	<delete id="deleteRoomById" parameterType="int">
+		DELETE FROM GAME_ROOM
+		WHERE ID = #{id}
+	</delete>
 
 	<!-- 查詢正在線上的會員 -->
 	<select id="getAllGameRooms"

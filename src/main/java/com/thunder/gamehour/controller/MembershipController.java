@@ -10,7 +10,7 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.RequiredArgsConstructor;
 
 /**
- * 會員資料可供呼叫的相關API
+ * 處理會員資料事務的相關API
  */
 @RestController
 @RequiredArgsConstructor

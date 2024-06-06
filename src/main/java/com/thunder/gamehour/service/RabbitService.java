@@ -2,14 +2,16 @@ package com.thunder.gamehour.service;
 
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.FanoutExchange;
+import org.springframework.amqp.core.Message;
+import org.springframework.amqp.core.MessageBuilder;
 import org.springframework.amqp.core.Queue;
+import java.nio.charset.StandardCharsets;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.thunder.gamehour.systemconst.SystemConst;
 import lombok.RequiredArgsConstructor;
 
@@ -21,8 +23,6 @@ import lombok.RequiredArgsConstructor;
 public class RabbitService {
 
 	private final RabbitAdmin rabbitAdmin;
-
-	private final ObjectMapper objectMapper;
 
 	private final RabbitTemplate rabbitTemplate;
 
@@ -79,6 +79,19 @@ public class RabbitService {
 		}
 		rabbitAdmin.declareQueue(queue);
 		rabbitAdmin.declareBinding(binding);
+	}
+
+	/**
+	 * 發送訊息到Queue
+	 * 
+	 * @param message      發送消息內容
+	 * @param exchangeName 交換機名稱
+	 * @param routingKey   routingKey名稱
+	 */
+	public void sendOutMessage(String exchangeName, String routingKey, String message) {
+		Message rabbitMessage = MessageBuilder.withBody(message.getBytes()).setContentType("application/json")
+				.setContentEncoding(StandardCharsets.UTF_8.toString()).build();
+		rabbitTemplate.send(exchangeName, routingKey, rabbitMessage);
 	}
 
 }

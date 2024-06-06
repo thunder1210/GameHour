@@ -23,17 +23,17 @@ public class GameRoom {
 	/**
 	 * 遊戲名稱
 	 */
-	private String gameName;
-
-	/**
-	 * 房主會員編號
-	 */
-	private String host;
+	private int gameName;
 
 	/**
 	 * 遊戲平台
 	 */
-	private String platform;
+	private int platform;
+
+	/**
+	 * 房主會員編號
+	 */
+	private int host;
 
 	/**
 	 * 限時房間標記

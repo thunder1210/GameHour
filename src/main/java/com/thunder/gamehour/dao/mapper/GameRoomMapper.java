@@ -20,6 +20,13 @@ public interface GameRoomMapper {
 	void createGameRoom(@Param("gameRoom") GameRoom gameRoom);
 
 	/**
+	 * 刪除遊戲房間
+	 * 
+	 * @param gameRoom 遊戲房ID
+	 */
+	void deleteGameRoom(@Param("gameRoomId") int gameRoomId);
+
+	/**
 	 * 查詢所有線上遊戲房間
 	 * 
 	 * @return 遊戲房間List

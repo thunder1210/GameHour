@@ -1,11 +1,8 @@
 package com.thunder.gamehour.config;
 
-import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.stereotype.Component;
-
 import com.thunder.gamehour.service.RabbitService;
 import com.thunder.gamehour.systemconst.SystemConst;
-
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 
@@ -15,8 +12,6 @@ import lombok.RequiredArgsConstructor;
 @Component
 @RequiredArgsConstructor
 public class RabbitInitializer {
-
-	private final RabbitAdmin admin;
 
 	private final RabbitService rabbitService;
 
