@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thunder.gamehour.dao.mapper.MemberMapper">
+
+	<!-- 創建新會員 -->
+	<insert id="createNewMember"
+		parameterType="com.thunder.gamehour.dao.model.Member">
+		INSERT INTO MEMBER (MEMBER_ACCOUNT, MEMBER_PASSWORD,
+		MEMBER_GENDER, MEMBER_NAME, MEMBER_ONLINE_STATUS, FAVORITE_GAME_TYPE,
+		MEMBER_CURRENT_ROOM)
+		VALUES
+		(#{MEMBER.MEMBERACCOUNT},
+		#{MEMBER.MEMBERPASSWORD},
+		#{MEMBER.MEMBERGENDER},
+		#{MEMBER.MEMBERNAME},
+		#{MEMBER.MEMBERONLINESTATUS}, #{MEMBER.FAVORITEGAMETYPE},
+		#{MEMBER.MEMBER_CURRENT_ROOM});
+	</insert>
+
+	<!-- 查詢正在線上的會員 -->
+	<select id="getOnlineMembers"
+		resultType="com.thunder.gamehour.dao.model.Member">
+		SELECT MEMBER_ID, MEMBER_ACCOUNT, MEMBER_PASSWORD,
+		MEMBER_GENDER,
+		MEMBER_NAME, MEMBER_ONLINE_STATUS, FAVORITE_GAME_TYPE,
+		MEMBER_CURRENT_ROOM
+		FROM MEMBER
+		ORDER BY MEMBER_ID
+	</select>
+
+</mapper>

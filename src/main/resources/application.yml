@@ -1,16 +1,19 @@
 # ======================================================================================
-# Springboot DB設置 (Redis & Postgre)
+# Springboot DB設置 (Redis & Postgre & RabbitMq)
 # ======================================================================================
 spring:
    application:
       name: gamehour
    mvc:
       static-path-pattern: /swagger*
+      hiddenmethod:
+         filter:
+            enabled: true 
    datasource:
       driver-class-name: org.postgresql.Driver
       username: postgres
       password: A123B456
-      url: jdbc:postgresql://192.168.74.21:5432/student
+      url: jdbc:postgresql://192.168.74.21:5432/gamehour
       minimum-idle: 5        
       maximum-pool-size: 10
       maxLifetime: 2000
@@ -20,7 +23,12 @@ spring:
          port: 6379
          password:
          timeout: 50000
-
+   rabbitmq:
+      host: localhost
+      password: guest
+      port: 5555
+      username: guest      
+         
 # ======================================================================================
 # Swaggar設置
 # ======================================================================================
