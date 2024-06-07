@@ -43,6 +43,9 @@ public class RedisCacheConfig implements KeyGenerator {
 		return RedisCacheManager.builder(redisConnectionFactory).cacheDefaults(redisCacheConfiguration).build();
 	}
 
+	/**
+	 * 自定義 KeyGenerator 設置
+	 */
 	@Override
 	public Object generate(Object target, Method method, Object... params) {
 		return SystemConst.EMPTY_STRING;

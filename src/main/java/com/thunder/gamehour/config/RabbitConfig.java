@@ -28,7 +28,7 @@ public class RabbitConfig {
 	private static final String VIRTUAL_HOST = "/";
 
 	/**
-	 * Connection Factory for Rabbit MQ
+	 * RabbitMQ 連線池設置
 	 * 
 	 * @return connectionFactory
 	 */

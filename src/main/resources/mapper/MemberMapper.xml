@@ -17,6 +17,15 @@
 		#{member.memberCurrentRoom});
 	</insert>
 
+	<!-- 更新會員所在的遊戲房間狀態 -->
+	<update id="updateMemberCurrentRoomStatus">
+		UPDATE MEMBER SET MEMBER_CURRENT_ROOM =
+		#{roomNumber}
+		WHERE
+		MEMBER_ID =
+		#{memberId}
+	</update>
+
 	<!-- 查詢正在線上的會員 -->
 	<select id="getOnlineMembers"
 		resultType="com.thunder.gamehour.dao.model.Member">

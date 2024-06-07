@@ -2,7 +2,7 @@ package com.thunder.gamehour.service;
 
 import java.util.List;
 import java.util.Random;
-
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import com.thunder.gamehour.dao.mapper.MemberMapper;
@@ -36,10 +36,20 @@ public class MembershipService {
 	/**
 	 * 查詢正在線上的會員
 	 * 
-	 * @return 線上會員List
+	 * @return 線上會員列表
 	 */
 	@Cacheable(value = "onlineMemberList", keyGenerator = "myKeyGenerator")
 	public List<Member> getOnlineMembers() {
+		return memberMapper.getOnlineMembers();
+	}
+
+	/**
+	 * 清除線上會員列表緩存並更新
+	 * 
+	 * @return 線上會員列表
+	 */
+	@CachePut(value = "onlineMemberList", keyGenerator = "myKeyGenerator")
+	public List<Member> updateOnlineMembers() {
 		return memberMapper.getOnlineMembers();
 	}
 

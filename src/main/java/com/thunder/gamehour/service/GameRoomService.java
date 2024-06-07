@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 import com.thunder.gamehour.dao.mapper.GameRoomMapper;
+import com.thunder.gamehour.dao.mapper.MemberMapper;
 import com.thunder.gamehour.dao.model.GameRoom;
 import lombok.RequiredArgsConstructor;
 
@@ -13,6 +14,8 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class GameRoomService {
+
+	private final MemberMapper memberMapper;
 
 	private final GameRoomMapper gameRoomMapper;
 
@@ -32,6 +35,7 @@ public class GameRoomService {
 	 */
 	public void createLimetedGameRoom(GameRoom gameRoom) {
 		gameRoomMapper.createGameRoom(gameRoom);
+		memberMapper.updateMemberCurrentRoomStatus(gameRoom.getId(), gameRoom.getHost());
 	}
 
 	/**

@@ -22,9 +22,9 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class GameRoomController {
 
-	private final GameRoomService gameRoomService;
-
 	private final RabbitService rabbitService;
+
+	private final GameRoomService gameRoomService;
 
 	/**
 	 * 創建遊戲房間

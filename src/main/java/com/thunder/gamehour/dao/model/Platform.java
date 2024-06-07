@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * 遊戲平台資料
+ * 遊戲平台
  */
 @Getter
 @Setter

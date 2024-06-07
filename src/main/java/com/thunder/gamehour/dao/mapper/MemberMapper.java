@@ -21,6 +21,14 @@ public interface MemberMapper {
 	void createNewMember(@Param("member") Member member);
 
 	/**
+	 * 更新會員所在的遊戲房間狀態
+	 * 
+	 * @param roomNumber 房間號碼
+	 * @param memberId   會員ID
+	 */
+	void updateMemberCurrentRoomStatus(@Param("roomNumber") String roomNumber, @Param("memberId") int memberId);
+
+	/**
 	 * 查詢正在線上的會員
 	 * 
 	 * @return 線上會員List

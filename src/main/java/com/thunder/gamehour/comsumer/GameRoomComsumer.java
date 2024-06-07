@@ -24,7 +24,9 @@ public class GameRoomComsumer {
 	private final GameRoomService gameRoomService;
 
 	/**
-	 * 死信佇列：當收到Message時刪除已失效的限時遊戲房間
+	 * [deadLetterGameRoomQueue佇列]
+	 * 
+	 * 當收到Message時，刪除已過期的限時遊戲房間
 	 * 
 	 * @param message 遊戲房ID
 	 */
