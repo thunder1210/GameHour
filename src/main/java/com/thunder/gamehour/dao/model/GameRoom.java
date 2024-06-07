@@ -13,7 +13,7 @@ public class GameRoom {
 	/**
 	 * 遊戲房編號
 	 */
-	private Long id;
+	private String id;
 
 	/**
 	 * 遊戲房名稱

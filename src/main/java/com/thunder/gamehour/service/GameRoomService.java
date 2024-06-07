@@ -39,8 +39,8 @@ public class GameRoomService {
 	 * 
 	 * @param gameRoom 遊戲房ID
 	 */
-	public void deleteGameRoom(int gameRoomId) {
-		gameRoomMapper.deleteGameRoom(gameRoomId);
+	public void deleteRoomByHostAndRoomName(GameRoom gameRoom) {
+		gameRoomMapper.deleteRoomByHostAndRoomName(gameRoom);
 	}
 
 	/**

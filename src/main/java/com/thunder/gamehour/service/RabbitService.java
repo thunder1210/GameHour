@@ -12,6 +12,10 @@ import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.thunder.gamehour.dao.model.GameRoom;
 import com.thunder.gamehour.systemconst.SystemConst;
 import lombok.RequiredArgsConstructor;
 
@@ -23,6 +27,8 @@ import lombok.RequiredArgsConstructor;
 public class RabbitService {
 
 	private final RabbitAdmin rabbitAdmin;
+
+	private final ObjectMapper objectMapper;
 
 	private final RabbitTemplate rabbitTemplate;
 
@@ -82,15 +88,17 @@ public class RabbitService {
 	}
 
 	/**
-	 * 發送訊息到Queue
+	 * 發送遊戲房資訊到Queue
 	 * 
-	 * @param message      發送消息內容
 	 * @param exchangeName 交換機名稱
-	 * @param routingKey   routingKey名稱
+	 * @param routingKey   RoutingKey名稱
+	 * @param gameRoom     遊戲房名稱
+	 * @throws JsonProcessingException Json處理例外拋出
 	 */
-	public void sendOutMessage(String exchangeName, String routingKey, String message) {
-		Message rabbitMessage = MessageBuilder.withBody(message.getBytes()).setContentType("application/json")
-				.setContentEncoding(StandardCharsets.UTF_8.toString()).build();
+	public void sendOutGameRoomMessage(String exchangeName, String routingKey, GameRoom gameRoom)
+			throws JsonProcessingException {
+		Message rabbitMessage = MessageBuilder.withBody(objectMapper.writeValueAsString(gameRoom).getBytes())
+				.setContentType("application/json").setContentEncoding(StandardCharsets.UTF_8.toString()).build();
 		rabbitTemplate.send(exchangeName, routingKey, rabbitMessage);
 	}
 

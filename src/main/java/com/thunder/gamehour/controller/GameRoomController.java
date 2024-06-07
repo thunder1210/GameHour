@@ -4,16 +4,20 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.thunder.gamehour.dao.model.GameRoom;
 import com.thunder.gamehour.service.GameRoomService;
 import com.thunder.gamehour.service.RabbitService;
 import com.thunder.gamehour.systemconst.SystemConst;
 import org.springframework.web.bind.annotation.RequestBody;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 處理遊戲房間事務的相關API
  */
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 public class GameRoomController {
@@ -40,9 +44,12 @@ public class GameRoomController {
 	@PostMapping("/LimitedGameRoom")
 	public void createTimeLimitedRoom(@RequestBody GameRoom newGameRoom) {
 		gameRoomService.createLimetedGameRoom(newGameRoom);
-		System.out.print(newGameRoom.getGameName() + newGameRoom.getGameName());
-		rabbitService.sendOutMessage(SystemConst.GAME_ROOM_EXCHANGE, SystemConst.GAME_ROOM_EXCHANGE_ROUTING_KEY,
-				String.valueOf(newGameRoom.getId()));
+		try {
+			rabbitService.sendOutGameRoomMessage(SystemConst.GAME_ROOM_EXCHANGE, SystemConst.GAME_ROOM_EXCHANGE_ROUTING_KEY,
+					newGameRoom);
+		} catch (JsonProcessingException e) {
+			log.info(e + newGameRoom.toString());
+		}
 	}
 
 	/**

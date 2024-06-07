@@ -19,9 +19,13 @@
 	</insert>
 
 	<!-- 刪除特定遊戲房間 -->
-	<delete id="deleteRoomById" parameterType="int">
-		DELETE FROM GAME_ROOM
-		WHERE ID = #{id}
+	<delete id="deleteRoomByHostAndRoomName"
+		parameterType="com.thunder.gamehour.dao.model.GameRoom">
+		DELETE
+		FROM GAME_ROOM
+		WHERE ROOM_NAME =
+		#{gameRoom.roomName} AND
+		HOST = #{gameRoom.host}
 	</delete>
 
 	<!-- 查詢正在線上的會員 -->

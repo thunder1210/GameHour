@@ -23,6 +23,10 @@ CREATE TABLE PLATFORM (
         LOGO VARCHAR(50),
         AVAILABILITY BOOLEAN
 );
+INSERT INTO PLATFORM (NAME, LOGO, AVAILABILITY) VALUES('Steam', 'LOGO', true);
+INSERT INTO PLATFORM (NAME, LOGO, AVAILABILITY) VALUES('PlayStation 4', 'LOGO', true);
+INSERT INTO PLATFORM (NAME, LOGO, AVAILABILITY) VALUES('Nintendo Switch', 'LOGO', true);
+INSERT INTO PLATFORM (NAME, LOGO, AVAILABILITY) VALUES('PlayStation 5', 'LOGO', true);
 
 -- ====================================================
 -- 資料表：GAME (遊戲)
@@ -35,6 +39,7 @@ CREATE TABLE GAME (
         RELEASE_DATE DATE
 );
 
+INSERT INTO GAME (chn_name, platform, eng_name, release_date) VALUES('惡靈古堡：啟示2', 3, 'Relevation 2', '2015-07-13');
 -- ====================================================
 -- 資料表：GAME_ROOM (遊戲房間)
 -- ====================================================

@@ -24,7 +24,7 @@ public interface GameRoomMapper {
 	 * 
 	 * @param gameRoom 遊戲房ID
 	 */
-	void deleteGameRoom(@Param("gameRoomId") int gameRoomId);
+	void deleteRoomByHostAndRoomName(@Param("gameRoom") GameRoom gameRoom);
 
 	/**
 	 * 查詢所有線上遊戲房間

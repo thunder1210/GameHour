@@ -20,9 +20,7 @@ public class RabbitInitializer {
 	 */
 	@PostConstruct
 	public void applicationInit() {
-
 		rabbitService.createExchange(SystemConst.GAME_ROOM_EXCHANGE, SystemConst.EXCHANGE_TYPE_DIRECT);
-
 		rabbitService.createRabbitQueue("tempGameRoomQueue");
 		rabbitService.createRabbitQueue("deadLetterGameRoomQueue");
 	}

@@ -6,12 +6,12 @@ package com.thunder.gamehour.systemconst;
 public class SystemConst {
 
 	/**
-	 * 緩存到期時間
+	 * 緩存到期時間 (3分鐘 / millisecond)
 	 */
-	public static final int CACHE_TTL_TIME = 6000000;
+	public static final int CACHE_TTL_TIME = 180000;
 
 	/**
-	 * 限時房間有效時限
+	 * 限時房間有效時限 (15分鐘 / millisecond)
 	 */
 	public static final int GAME_ROOM_EFFECTIVE_TIME = 900000;
 
@@ -36,5 +36,10 @@ public class SystemConst {
 	public static final String EXCHANGE_TYPE_TOPIC = "topic";
 	public static final String EXCHANGE_TYPE_DIRECT = "direct";
 	public static final String EXCHANGE_TYPE_FANOUT = "fanOut";
+
+	/**
+	 * 空字串
+	 */
+	public static final String EMPTY_STRING = "";
 
 }

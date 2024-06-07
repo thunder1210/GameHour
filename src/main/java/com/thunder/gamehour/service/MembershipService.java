@@ -3,6 +3,7 @@ package com.thunder.gamehour.service;
 import java.util.List;
 import java.util.Random;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import com.thunder.gamehour.dao.mapper.MemberMapper;
 import com.thunder.gamehour.dao.model.Member;
@@ -37,6 +38,7 @@ public class MembershipService {
 	 * 
 	 * @return 線上會員List
 	 */
+	@Cacheable(value = "onlineMemberList", keyGenerator = "myKeyGenerator")
 	public List<Member> getOnlineMembers() {
 		return memberMapper.getOnlineMembers();
 	}
