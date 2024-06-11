@@ -1,11 +1,12 @@
 package com.thunder.gamehour.service;
 
 import java.util.List;
-
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 import com.thunder.gamehour.dao.mapper.GameRoomMapper;
 import com.thunder.gamehour.dao.mapper.MemberMapper;
 import com.thunder.gamehour.dao.model.GameRoom;
+import com.thunder.gamehour.dao.model.RoomSearchCondition;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -54,6 +55,17 @@ public class GameRoomService {
 	 */
 	public List<GameRoom> getAllGameRooms() {
 		return gameRoomMapper.getAllGameRooms();
+	}
+
+	/**
+	 * 依照條件搜尋線上房間
+	 *
+	 * @param roomSearchCondition 搜尋條件
+	 * @return 遊戲房間查詢結果
+	 */
+	public List<GameRoom> getGameRoomWithCondition(
+			@Param("roomSearchCondition") RoomSearchCondition roomSearchCondition) {
+		return gameRoomMapper.getGameRoomWithCondition(roomSearchCondition);
 	}
 
 }

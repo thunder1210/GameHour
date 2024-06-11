@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.thunder.gamehour.dao.model.GameRoom;
+import com.thunder.gamehour.dao.model.RoomSearchCondition;
 import com.thunder.gamehour.service.GameRoomService;
 import com.thunder.gamehour.service.RabbitService;
 import com.thunder.gamehour.systemconst.SystemConst;
@@ -37,27 +38,35 @@ public class GameRoomController {
 	}
 
 	/**
+	 * 查詢所有線上遊戲房間
+	 */
+	@GetMapping("/gameRoom")
+	public List<GameRoom> getGameRoomWithCondition(@RequestBody RoomSearchCondition roomSearchCondition) {
+		return gameRoomService.getGameRoomWithCondition(roomSearchCondition);
+	}
+
+	/**
+	 * 依照條件搜尋線上房間
+	 */
+	@PostMapping("/gameRoom/search")
+	public List<GameRoom> getAllGameRooms() {
+		return gameRoomService.getAllGameRooms();
+	}
+
+	/**
 	 * 創建限時遊戲房間
 	 * 
 	 * @param member 限時遊戲房資料
 	 */
-	@PostMapping("/LimitedGameRoom")
+	@PostMapping("/gameRoom/limited")
 	public void createTimeLimitedRoom(@RequestBody GameRoom newGameRoom) {
 		gameRoomService.createLimetedGameRoom(newGameRoom);
 		try {
-			rabbitService.sendOutGameRoomMessage(SystemConst.GAME_ROOM_EXCHANGE, SystemConst.GAME_ROOM_EXCHANGE_ROUTING_KEY,
-					newGameRoom);
+			rabbitService.sendOutGameRoomMessage(SystemConst.GAME_ROOM_EXCHANGE,
+					SystemConst.GAME_ROOM_EXCHANGE_ROUTING_KEY, newGameRoom);
 		} catch (JsonProcessingException e) {
 			log.info(e + newGameRoom.toString());
 		}
-	}
-
-	/**
-	 * 查詢所有線上遊戲房間
-	 */
-	@GetMapping("/gameRoom")
-	public List<GameRoom> getAllGameRooms() {
-		return gameRoomService.getAllGameRooms();
 	}
 
 }

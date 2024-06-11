@@ -44,7 +44,7 @@ public class RabbitConfig {
 	/**
 	 * RabbitAdmin Config
 	 * 
-	 * @param connectionFactory
+	 * @param connectionFactory connection Item
 	 * @return Connected RabbitAdmin
 	 */
 	@Bean

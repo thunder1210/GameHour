@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.thunder.gamehour.dao.mapper.GameTypeMapper">
+
+	<!-- 搜尋所有遊戲類型 -->
+	<select id="getAllGameTypes"
+		resultType="com.thunder.gamehour.dao.model.GameType">
+		SELECT ID, TYPE_NAME_CHN, TYPE_NAME_ENG FROM GAME_TYPE
+	</select>
+
+</mapper>

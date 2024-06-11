@@ -46,3 +46,11 @@ server:
    servlet:
       context-path: /
 
+# ======================================================================================
+# Jasypt設置    
+# ======================================================================================
+
+#jasypt:
+#   encryptor:
+#      password: ${JASYPT_ENCRYPTION_PASSWORD}
+#      algorithm: PBEWithMD5AndDES

@@ -28,7 +28,7 @@
 		HOST = #{gameRoom.host}
 	</delete>
 
-	<!-- 查詢正在線上的會員 -->
+	<!-- 搜尋所有線上房間 -->
 	<select id="getAllGameRooms"
 		resultType="com.thunder.gamehour.dao.model.GameRoom">
 		SELECT ID, ROOM_NAME,
@@ -38,6 +38,60 @@
 		FROM GAME_ROOM
 		ORDER BY
 		ID
+	</select>
+
+	<!-- 依照條件搜尋線上房間 -->
+	<select id="getGameRoomWithCondition"
+		parameterType="com.thunder.gamehour.dao.model.RoomSearchCondition"
+		resultType="com.thunder.gamehour.dao.model.GameRoom">
+		SELECT GAME_ROOM.ID, GAME_ROOM.ROOM_NAME, GAME_ROOM.GAME_NAME,
+		GAME_ROOM.PLATFORM, GAME_ROOM.HOST,
+		GAME_ROOM.IS_TIME_LIMITED,
+		GAME_TYPE.TYPE_NAME_CHN
+		LEFT JOIN GAME ON GAME_ROOM.GAME_NAME = GAME.ID
+		LEFT JOIN GAME_TYPE ON GAME.GAME_TYPE = GAME_TYPE.ID
+		<where>
+			<choose>
+				<when test="roomSearchCondition.gameRoomType == true">
+					AND GAME_ROOM.IS_TIME_LIMITED = true
+				</when>
+				<when test="roomSearchCondition.gameRoomType == false">
+					AND GAME_ROOM.IS_TIME_LIMITED = false
+				</when>
+			</choose>
+			<choose>
+				<when test="roomSearchCondition.searchCondition1 != null">
+					AND(
+					OR GAME_TYPE.TYPE_NAME_CHN =
+					#{roomSearchCondition.searchCondition1}
+					)
+				</when>
+				<when test="roomSearchCondition.searchCondition2 != null">
+					AND(
+					OR GAME_TYPE.TYPE_NAME_CHN =
+					#{roomSearchCondition.searchCondition2}
+					)
+				</when>
+				<when test="roomSearchCondition.searchCondition3 != null">
+					AND(
+					OR GAME_TYPE.TYPE_NAME_CHN =
+					#{roomSearchCondition.searchCondition3}
+					)
+				</when>
+				<when test="roomSearchCondition.searchCondition4 != null">
+					AND(
+					OR GAME_TYPE.TYPE_NAME_CHN =
+					#{roomSearchCondition.searchCondition4}
+					)
+				</when>
+				<when test="roomSearchCondition.searchCondition5 != null">
+					AND(
+					OR GAME_TYPE.TYPE_NAME_CHN =
+					#{roomSearchCondition.searchCondition5}
+					)
+				</when>
+			</choose>
+		</where>
 	</select>
 
 </mapper>

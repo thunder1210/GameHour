@@ -1,6 +1,8 @@
 package com.thunder.gamehour.config;
 
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
@@ -9,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
@@ -28,7 +31,7 @@ public class RedisCacheConfig implements KeyGenerator {
 	/**
 	 * 緩存管理設置
 	 * 
-	 * @param redisConnectionFactory
+	 * @param redisConnectionFactory connection Item
 	 * @return RedisCacheManager
 	 */
 	@Bean
@@ -40,7 +43,24 @@ public class RedisCacheConfig implements KeyGenerator {
 						RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer()))
 				.serializeValuesWith(RedisSerializationContext.SerializationPair
 						.fromSerializer(new GenericJackson2JsonRedisSerializer()));
+
+		Map<String, RedisCacheConfiguration> cacheConfigurations = new HashMap<>();
+		cacheConfigurations.put("onlineMemberList",
+				RedisCacheConfiguration.defaultCacheConfig().entryTtl(SystemConst.ONLINE_MEMBER_LIST_CACHE_TIME));
+
 		return RedisCacheManager.builder(redisConnectionFactory).cacheDefaults(redisCacheConfiguration).build();
+	}
+
+	/**
+	 * RedisTemplate 設置
+	 */
+	@Bean
+	RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory connectionFactory) {
+		RedisTemplate<String, Object> template = new RedisTemplate<>();
+		template.setConnectionFactory(connectionFactory);
+		template.setKeySerializer(new StringRedisSerializer());
+		template.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+		return template;
 	}
 
 	/**
