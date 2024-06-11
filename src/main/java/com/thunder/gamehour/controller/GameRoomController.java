@@ -41,16 +41,16 @@ public class GameRoomController {
 	 * 查詢所有線上遊戲房間
 	 */
 	@GetMapping("/gameRoom")
-	public List<GameRoom> getGameRoomWithCondition(@RequestBody RoomSearchCondition roomSearchCondition) {
-		return gameRoomService.getGameRoomWithCondition(roomSearchCondition);
+	public List<GameRoom> getAllGameRooms() {
+		return gameRoomService.getAllGameRooms();
 	}
 
 	/**
 	 * 依照條件搜尋線上房間
 	 */
 	@PostMapping("/gameRoom/search")
-	public List<GameRoom> getAllGameRooms() {
-		return gameRoomService.getAllGameRooms();
+	public List<GameRoom> getGameRoomWithCondition(@RequestBody RoomSearchCondition roomSearchCondition) {
+		return gameRoomService.getGameRoomWithCondition(roomSearchCondition);
 	}
 
 	/**

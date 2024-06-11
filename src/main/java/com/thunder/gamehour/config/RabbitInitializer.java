@@ -34,15 +34,15 @@ public class RabbitInitializer {
 		rabbitService.createRabbitQueue("deadLetterGameRoomQueue");
 	}
 
-	/**
-	 * Application啟動時創建GamyTypeList
-	 */
-	@PostConstruct
-	public void addGameType() {
-		List<GameType> gameTypeList = gameTypeService.getAllGameTypes();
-		for (GameType item : gameTypeList) {
-			redisTemplate.opsForList().rightPush("gameTypeList", item);
-		}
-	}
+//	/**
+//	 * Application啟動時創建GamyTypeList
+//	 */
+//	@PostConstruct
+//	public void addGameType() {
+//		List<GameType> gameTypeList = gameTypeService.getAllGameTypes();
+//		for (GameType item : gameTypeList) {
+//			redisTemplate.opsForList().rightPush("gameTypeList", item);
+//		}
+//	}
 
 }
