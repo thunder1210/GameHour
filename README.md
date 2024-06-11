@@ -1,5 +1,5 @@
 # GameHour 
-*A Website based on gamers and Joyful moments*
+*A Website based on gamers-online-battle and Joyful moments*
 
 ## FrontPage
 ## GameRoom Lobby
