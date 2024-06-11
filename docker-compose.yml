@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+      RABBITMQ_DEFAULT_VHOST: /
+    volumes:
+      - /rabbit
+    ports:
+      - 5555:5672
+      - 15555:15672
+    restart: always
+
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: A123B456
+      POSTGRES_DB: gamehour
+    ports: 
+      - 5432:5432
+
+  redis:
+    image: redis:7.2.5       
+    container_name: redis   
+    environment:
+      REDIS_PASSWORD: 
+      REDIS_BIND: 0.0.0.0
+    ports: 
+      - 6379:6379
