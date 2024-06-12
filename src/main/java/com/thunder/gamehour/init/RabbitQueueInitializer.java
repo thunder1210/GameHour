@@ -1,6 +1,7 @@
-package com.thunder.gamehour.config;
+package com.thunder.gamehour.init;
 
 import java.util.List;
+
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +17,7 @@ import lombok.RequiredArgsConstructor;
  */
 @Component
 @RequiredArgsConstructor
-public class RabbitInitializer {
+public class RabbitQueueInitializer {
 
 	private final RabbitService rabbitService;
 
@@ -34,15 +35,15 @@ public class RabbitInitializer {
 		rabbitService.createRabbitQueue("deadLetterGameRoomQueue");
 	}
 
-//	/**
-//	 * Application啟動時創建GamyTypeList
-//	 */
-//	@PostConstruct
-//	public void addGameType() {
-//		List<GameType> gameTypeList = gameTypeService.getAllGameTypes();
-//		for (GameType item : gameTypeList) {
-//			redisTemplate.opsForList().rightPush("gameTypeList", item);
-//		}
-//	}
+	/**
+	 * Application啟動時創建GamyTypeList
+	 */
+	@PostConstruct
+	public void addGameType() {
+		List<GameType> gameTypeList = gameTypeService.getAllGameTypes();
+		for (GameType item : gameTypeList) {
+			redisTemplate.opsForList().rightPush("gameTypeList", item);
+		}
+	}
 
 }

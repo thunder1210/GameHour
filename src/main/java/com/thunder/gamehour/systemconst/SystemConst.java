@@ -8,7 +8,7 @@ import java.time.Duration;
 public class SystemConst {
 
 	/**
-	 * 緩存到期時間 (15分鐘 / millisecond)
+	 * Redis TTL緩存到期時間 (15分鐘 / millisecond)
 	 */
 	public static final int CACHE_TTL_TIME = 900000;
 
@@ -23,11 +23,6 @@ public class SystemConst {
 	public static final int GAME_ROOM_EFFECTIVE_TIME = 900000;
 
 	/**
-	 * 限時房間的Dead Letter Routing Key
-	 */
-	public static final String DEAD_LETTER_ROUTING_KEY = "19911210";
-
-	/**
 	 * 遊戲房間的交換機名稱
 	 */
 	public static final String GAME_ROOM_EXCHANGE = "GameRoomExchange";
@@ -36,6 +31,11 @@ public class SystemConst {
 	 * 遊戲房間的Routing Key
 	 */
 	public static final String GAME_ROOM_EXCHANGE_ROUTING_KEY = "20241210";
+
+	/**
+	 * 限時房間的Dead Letter Routing Key
+	 */
+	public static final String DEAD_LETTER_ROUTING_KEY = "19911210";
 
 	/**
 	 * RabbitMQ 交換機型態
@@ -48,5 +48,10 @@ public class SystemConst {
 	 * 空字串
 	 */
 	public static final String EMPTY_STRING = "";
+
+	/**
+	 * 共用時間格式
+	 */
+	public static final String TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
 }

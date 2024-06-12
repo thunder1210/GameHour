@@ -99,7 +99,7 @@ public class RabbitService {
 			throws JsonProcessingException {
 		Message rabbitMessage = MessageBuilder.withBody(objectMapper.writeValueAsString(gameRoom).getBytes())
 				.setContentType("application/json").setContentEncoding(StandardCharsets.UTF_8.toString()).build();
-		rabbitTemplate.send(exchangeName, routingKey, rabbitMessage);
+		rabbitTemplate.convertAndSend(exchangeName, routingKey, rabbitMessage);
 	}
 
 }
