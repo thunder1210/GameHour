@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
+import jakarta.annotation.Nonnull;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
@@ -70,7 +71,7 @@ public class RedisCacheConfig implements KeyGenerator {
 	 * 自定義 KeyGenerator 設置
 	 */
 	@Override
-	public Object generate(Object target, Method method, Object... params) {
+	public Object generate(@Nonnull Object target, @Nonnull Method method, @Nonnull Object... params) {
 		return SystemConst.EMPTY_STRING;
 	}
 

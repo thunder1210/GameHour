@@ -78,9 +78,9 @@ public class RabbitConfig {
 		// Set ConfirmCallback
 		rabbitTemplate.setConfirmCallback((correlationData, ack, cause) -> {
 			if (ack) {
-				log.info(now.format(formatter) + "RabbitMQ訊息發送成功");
+                log.info("RabbitMQ訊息發送成功", now.format(formatter));
 			} else {
-				log.info(now.format(formatter) + "RabbitMQ訊息發送失敗");
+                log.info("RabbitMQ訊息發送失敗", now.format(formatter));
 			}
 		});
 		return rabbitTemplate;

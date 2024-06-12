@@ -10,7 +10,7 @@ import com.thunder.gamehour.dao.model.RoomSearchCondition;
 import lombok.RequiredArgsConstructor;
 
 /**
- * 處理遊戲房間相關邏輯與資料返回
+ * 處理[遊戲房間]相關邏輯與資料返回
  */
 @Service
 @RequiredArgsConstructor

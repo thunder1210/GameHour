@@ -12,12 +12,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Comsumer from RabbitMQ queue
+ * Consumer from RabbitMQ queue
  */
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class GameRoomComsumer {
+public class GameRoomConsumer {
 
 	private final ObjectMapper objectMapper;
 
@@ -25,7 +25,6 @@ public class GameRoomComsumer {
 
 	/**
 	 * [deadLetterGameRoomQueue佇列]
-	 * 
 	 * 當收到Message時，刪除已過期的限時遊戲房間
 	 * 
 	 * @param message 遊戲房ID
@@ -35,7 +34,7 @@ public class GameRoomComsumer {
 		try {
 			gameRoomService.deleteRoomByHostAndRoomName(objectMapper.readValue(message, GameRoom.class));
 		} catch (JsonProcessingException e) {
-			log.info(e + message);
+            log.info("Json processing error when delete time-limited Room", e, message);
 		}
 	}
 

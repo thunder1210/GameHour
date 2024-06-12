@@ -10,7 +10,7 @@ import com.thunder.gamehour.dao.model.Member;
 import lombok.RequiredArgsConstructor;
 
 /**
- * 處理會員資料相關邏輯與資料返回
+ * 處理[會員資料]相關邏輯與資料返回
  */
 @Service
 @RequiredArgsConstructor

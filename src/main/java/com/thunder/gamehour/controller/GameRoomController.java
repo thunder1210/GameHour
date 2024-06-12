@@ -56,7 +56,7 @@ public class GameRoomController {
 	/**
 	 * 創建限時遊戲房間
 	 * 
-	 * @param member 限時遊戲房資料
+	 * @param newGameRoom 限時遊戲房資料
 	 */
 	@PostMapping("/gameRoom/limited")
 	public void createTimeLimitedRoom(@RequestBody GameRoom newGameRoom) {
@@ -65,7 +65,7 @@ public class GameRoomController {
 			rabbitService.sendOutGameRoomMessage(SystemConst.GAME_ROOM_EXCHANGE,
 					SystemConst.GAME_ROOM_EXCHANGE_ROUTING_KEY, newGameRoom);
 		} catch (JsonProcessingException e) {
-			log.info(e + newGameRoom.toString());
+            log.info("Json processing error when create time-limited Room", e, newGameRoom.toString());
 		}
 	}
 

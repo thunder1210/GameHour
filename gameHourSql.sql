@@ -17,7 +17,9 @@ CREATE TABLE MEMBER (
 
 INSERT INTO MEMBER (MEMBER_ACCOUNT, MEMBER_PASSWORD, MEMBER_GENDER, MEMBER_NAME, MEMBER_ONLINE_STATUS, FAVORITE_GAME_TYPE, MEMBER_CURRENT_ROOM)
 VALUES ('thunder1210', '123456', 'M', 'thunder', true, '1, 2, 3, 5', null),
-('chuck9845', 'c65055', 'M', 'chuck', true, '1', null);
+('chuck9845', 'c65055', 'M', 'chuck', true, '1', null),
+('bart4452s', 'a5s96aa', 'M', 'bart', true, '5', null),
+('barry_ew32', 'd9f9ds', 'F', 'barry', true, '1, 5, 9', null);
 -- ====================================================
 -- 資料表：PLATFORM (遊戲平台)
 -- ====================================================

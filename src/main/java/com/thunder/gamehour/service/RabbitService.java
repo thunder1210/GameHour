@@ -20,7 +20,7 @@ import com.thunder.gamehour.systemconst.SystemConst;
 import lombok.RequiredArgsConstructor;
 
 /**
- * 處理RabbitMQ相關事務邏輯
+ * 處理[RabbitMQ]相關事務邏輯
  */
 @Service
 @RequiredArgsConstructor

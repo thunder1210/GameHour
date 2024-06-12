@@ -4,6 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * 處理頁面跳轉相關API
+ */
 @Controller
 @RequiredArgsConstructor
 public class PageController {

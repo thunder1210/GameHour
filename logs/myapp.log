@@ -1,0 +1,1022 @@
+2024-06-12 16:15:09.214 [restartedMain] ERROR o.s.boot.SpringApplication -
+				Application run failed
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.model.processor.ImplicitModelHandler - Could not create component [triggeringPolicy] of type [ch.qos.logback.core.rolling.TimeBasedTriggeringPolicy] java.lang.ClassNotFoundException: ch.qos.logback.core.rolling.TimeBasedTriggeringPolicy
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:347)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:298)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:246)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:223)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138)
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:81)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:64)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:63)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.thunder.gamehour.GamehourApplication.main(GamehourApplication.java:15)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.model.processor.ImplicitModelHandler - Could not create component [triggeringPolicy] of type [ch.qos.logback.core.rolling.TimeBasedTriggeringPolicy] java.lang.ClassNotFoundException: ch.qos.logback.core.rolling.TimeBasedTriggeringPolicy
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.reportConfigurationErrorsIfNecessary(LogbackLoggingSystem.java:282)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:260)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.reinitialize(LogbackLoggingSystem.java:339)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:74)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:61)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:193)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:332)
+	... 24 common frames omitted
+	Suppressed: java.lang.ClassNotFoundException: ch.qos.logback.core.rolling.TimeBasedTriggeringPolicy
+		at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+		at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+		at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+		at ch.qos.logback.core.util.Loader.loadClass(Loader.java:132)
+		at ch.qos.logback.core.model.processor.ImplicitModelHandler.doComplex(ImplicitModelHandler.java:134)
+		at ch.qos.logback.core.model.processor.ImplicitModelHandler.handle(ImplicitModelHandler.java:94)
+		at ch.qos.logback.core.model.processor.DefaultProcessor.secondPhaseTraverse(DefaultProcessor.java:241)
+		at ch.qos.logback.core.model.processor.DefaultProcessor.secondPhaseTraverse(DefaultProcessor.java:253)
+		at ch.qos.logback.core.model.processor.DefaultProcessor.secondPhaseTraverse(DefaultProcessor.java:253)
+		at ch.qos.logback.core.model.processor.DefaultProcessor.traversalLoop(DefaultProcessor.java:90)
+		at ch.qos.logback.core.model.processor.DefaultProcessor.process(DefaultProcessor.java:106)
+		at ch.qos.logback.core.joran.GenericXMLConfigurator.processModel(GenericXMLConfigurator.java:216)
+		at org.springframework.boot.logging.logback.SpringBootJoranConfigurator.processModel(SpringBootJoranConfigurator.java:132)
+		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:178)
+		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:123)
+		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:66)
+		at org.springframework.boot.logging.logback.LogbackLoggingSystem.configureByResourceUrl(LogbackLoggingSystem.java:292)
+		at org.springframework.boot.logging.logback.LogbackLoggingSystem.lambda$loadConfiguration$1(LogbackLoggingSystem.java:254)
+		at org.springframework.boot.logging.logback.LogbackLoggingSystem.withLoggingSuppressed(LogbackLoggingSystem.java:472)
+		at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:248)
+		... 29 common frames omitted
+2024-06-12 16:16:13.650 [restartedMain] ERROR o.s.boot.SpringApplication -
+				Application run failed
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.model.processor.ImplicitModelHandler - Could not create component [triggeringPolicy] of type [ch.qos.logback.core.rolling.TimeBasedTriggeringPolicy] java.lang.ClassNotFoundException: ch.qos.logback.core.rolling.TimeBasedTriggeringPolicy
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:347)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:298)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:246)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:223)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138)
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:81)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:64)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:63)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.thunder.gamehour.GamehourApplication.main(GamehourApplication.java:15)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.model.processor.ImplicitModelHandler - Could not create component [triggeringPolicy] of type [ch.qos.logback.core.rolling.TimeBasedTriggeringPolicy] java.lang.ClassNotFoundException: ch.qos.logback.core.rolling.TimeBasedTriggeringPolicy
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.reportConfigurationErrorsIfNecessary(LogbackLoggingSystem.java:282)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:260)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.reinitialize(LogbackLoggingSystem.java:339)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:74)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:61)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:193)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:332)
+	... 24 common frames omitted
+	Suppressed: java.lang.ClassNotFoundException: ch.qos.logback.core.rolling.TimeBasedTriggeringPolicy
+		at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+		at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+		at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+		at ch.qos.logback.core.util.Loader.loadClass(Loader.java:132)
+		at ch.qos.logback.core.model.processor.ImplicitModelHandler.doComplex(ImplicitModelHandler.java:134)
+		at ch.qos.logback.core.model.processor.ImplicitModelHandler.handle(ImplicitModelHandler.java:94)
+		at ch.qos.logback.core.model.processor.DefaultProcessor.secondPhaseTraverse(DefaultProcessor.java:241)
+		at ch.qos.logback.core.model.processor.DefaultProcessor.secondPhaseTraverse(DefaultProcessor.java:253)
+		at ch.qos.logback.core.model.processor.DefaultProcessor.secondPhaseTraverse(DefaultProcessor.java:253)
+		at ch.qos.logback.core.model.processor.DefaultProcessor.traversalLoop(DefaultProcessor.java:90)
+		at ch.qos.logback.core.model.processor.DefaultProcessor.process(DefaultProcessor.java:106)
+		at ch.qos.logback.core.joran.GenericXMLConfigurator.processModel(GenericXMLConfigurator.java:216)
+		at org.springframework.boot.logging.logback.SpringBootJoranConfigurator.processModel(SpringBootJoranConfigurator.java:132)
+		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:178)
+		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:123)
+		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:66)
+		at org.springframework.boot.logging.logback.LogbackLoggingSystem.configureByResourceUrl(LogbackLoggingSystem.java:292)
+		at org.springframework.boot.logging.logback.LogbackLoggingSystem.lambda$loadConfiguration$1(LogbackLoggingSystem.java:254)
+		at org.springframework.boot.logging.logback.LogbackLoggingSystem.withLoggingSuppressed(LogbackLoggingSystem.java:472)
+		at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:248)
+		... 29 common frames omitted
+2024-06-12 16:20:09.014 [restartedMain] ERROR o.s.boot.SpringApplication -
+				Application run failed
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.model.processor.ImplicitModelHandler - Could not create component [triggeringPolicy] of type [ch.qos.logback.core.rolling.TimeBasedTriggeringPolicy] java.lang.ClassNotFoundException: ch.qos.logback.core.rolling.TimeBasedTriggeringPolicy
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:347)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:298)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:246)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:223)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138)
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:81)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:64)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:63)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.thunder.gamehour.GamehourApplication.main(GamehourApplication.java:15)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.model.processor.ImplicitModelHandler - Could not create component [triggeringPolicy] of type [ch.qos.logback.core.rolling.TimeBasedTriggeringPolicy] java.lang.ClassNotFoundException: ch.qos.logback.core.rolling.TimeBasedTriggeringPolicy
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.reportConfigurationErrorsIfNecessary(LogbackLoggingSystem.java:282)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:260)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.reinitialize(LogbackLoggingSystem.java:339)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:74)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:61)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:193)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:332)
+	... 24 common frames omitted
+	Suppressed: java.lang.ClassNotFoundException: ch.qos.logback.core.rolling.TimeBasedTriggeringPolicy
+		at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+		at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+		at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+		at ch.qos.logback.core.util.Loader.loadClass(Loader.java:132)
+		at ch.qos.logback.core.model.processor.ImplicitModelHandler.doComplex(ImplicitModelHandler.java:134)
+		at ch.qos.logback.core.model.processor.ImplicitModelHandler.handle(ImplicitModelHandler.java:94)
+		at ch.qos.logback.core.model.processor.DefaultProcessor.secondPhaseTraverse(DefaultProcessor.java:241)
+		at ch.qos.logback.core.model.processor.DefaultProcessor.secondPhaseTraverse(DefaultProcessor.java:253)
+		at ch.qos.logback.core.model.processor.DefaultProcessor.secondPhaseTraverse(DefaultProcessor.java:253)
+		at ch.qos.logback.core.model.processor.DefaultProcessor.traversalLoop(DefaultProcessor.java:90)
+		at ch.qos.logback.core.model.processor.DefaultProcessor.process(DefaultProcessor.java:106)
+		at ch.qos.logback.core.joran.GenericXMLConfigurator.processModel(GenericXMLConfigurator.java:216)
+		at org.springframework.boot.logging.logback.SpringBootJoranConfigurator.processModel(SpringBootJoranConfigurator.java:132)
+		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:178)
+		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:123)
+		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:66)
+		at org.springframework.boot.logging.logback.LogbackLoggingSystem.configureByResourceUrl(LogbackLoggingSystem.java:292)
+		at org.springframework.boot.logging.logback.LogbackLoggingSystem.lambda$loadConfiguration$1(LogbackLoggingSystem.java:254)
+		at org.springframework.boot.logging.logback.LogbackLoggingSystem.withLoggingSuppressed(LogbackLoggingSystem.java:472)
+		at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:248)
+		... 29 common frames omitted
+2024-06-12 16:22:46.308 [restartedMain] ERROR o.s.boot.SpringApplication -
+				Application run failed
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.model.processor.ImplicitModelHandler - Could not create component [triggeringPolicy] of type [ch.qos.logback.core.rolling.TimeBasedTriggeringPolicy] java.lang.ClassNotFoundException: ch.qos.logback.core.rolling.TimeBasedTriggeringPolicy
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:347)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:298)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:246)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:223)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138)
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:81)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:64)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:63)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.thunder.gamehour.GamehourApplication.main(GamehourApplication.java:15)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.model.processor.ImplicitModelHandler - Could not create component [triggeringPolicy] of type [ch.qos.logback.core.rolling.TimeBasedTriggeringPolicy] java.lang.ClassNotFoundException: ch.qos.logback.core.rolling.TimeBasedTriggeringPolicy
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.reportConfigurationErrorsIfNecessary(LogbackLoggingSystem.java:282)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:260)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.reinitialize(LogbackLoggingSystem.java:339)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:74)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:61)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:193)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:332)
+	... 24 common frames omitted
+	Suppressed: java.lang.ClassNotFoundException: ch.qos.logback.core.rolling.TimeBasedTriggeringPolicy
+		at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+		at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+		at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+		at ch.qos.logback.core.util.Loader.loadClass(Loader.java:132)
+		at ch.qos.logback.core.model.processor.ImplicitModelHandler.doComplex(ImplicitModelHandler.java:134)
+		at ch.qos.logback.core.model.processor.ImplicitModelHandler.handle(ImplicitModelHandler.java:94)
+		at ch.qos.logback.core.model.processor.DefaultProcessor.secondPhaseTraverse(DefaultProcessor.java:241)
+		at ch.qos.logback.core.model.processor.DefaultProcessor.secondPhaseTraverse(DefaultProcessor.java:253)
+		at ch.qos.logback.core.model.processor.DefaultProcessor.secondPhaseTraverse(DefaultProcessor.java:253)
+		at ch.qos.logback.core.model.processor.DefaultProcessor.traversalLoop(DefaultProcessor.java:90)
+		at ch.qos.logback.core.model.processor.DefaultProcessor.process(DefaultProcessor.java:106)
+		at ch.qos.logback.core.joran.GenericXMLConfigurator.processModel(GenericXMLConfigurator.java:216)
+		at org.springframework.boot.logging.logback.SpringBootJoranConfigurator.processModel(SpringBootJoranConfigurator.java:132)
+		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:178)
+		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:123)
+		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:66)
+		at org.springframework.boot.logging.logback.LogbackLoggingSystem.configureByResourceUrl(LogbackLoggingSystem.java:292)
+		at org.springframework.boot.logging.logback.LogbackLoggingSystem.lambda$loadConfiguration$1(LogbackLoggingSystem.java:254)
+		at org.springframework.boot.logging.logback.LogbackLoggingSystem.withLoggingSuppressed(LogbackLoggingSystem.java:472)
+		at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:248)
+		... 29 common frames omitted
+2024-06-12 16:24:11.269 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Starting GamehourApplication using Java 17.0.9 with PID 21748 (D:\eclipse\workspace\gamehour\target\classes started by nathan.zhao in D:\eclipse\workspace\gamehour)
+2024-06-12 16:24:11.271 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				No active profile set, falling back to 1 default profile: "default"
+2024-06-12 16:24:11.308 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor -
+				Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-12 16:24:11.309 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor -
+				For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-12 16:24:12.182 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-12 16:24:12.184 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-06-12 16:24:12.204 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2024-06-12 16:24:12.760 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat initialized with port 8080 (http)
+2024-06-12 16:24:12.768 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:24:12.770 [restartedMain] INFO  o.a.catalina.core.StandardService -
+				Starting service [Tomcat]
+2024-06-12 16:24:12.770 [restartedMain] INFO  o.a.catalina.core.StandardEngine -
+				Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-12 16:24:12.829 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2024-06-12 16:24:12.829 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -
+				Root WebApplicationContext: initialization completed in 1520 ms
+2024-06-12 16:24:13.464 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-1 - Starting...
+2024-06-12 16:24:13.604 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool -
+				HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@53a4efa4
+2024-06-12 16:24:13.605 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-1 - Start completed.
+2024-06-12 16:24:14.099 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Attempting to connect to: localhost:5555
+2024-06-12 16:24:14.158 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Created new connection: connectionFactory#462e3c64:0/SimpleConnection@39715b5d [delegate=amqp://guest@127.0.0.1:5555/, localPort=65347]
+2024-06-12 16:24:14.334 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping -
+				Adding welcome page template: index
+2024-06-12 16:24:14.640 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Connecting to localhost with guest user, assuming development environment
+2024-06-12 16:24:14.640 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Using address resolver to always connect to localhost
+2024-06-12 16:24:14.931 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -
+				LiveReload server is running on port 35729
+2024-06-12 16:24:14.984 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:24:15.000 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat started on port 8080 (http) with context path '/'
+2024-06-12 16:24:15.025 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Started GamehourApplication in 4.048 seconds (process running for 5.106)
+2024-06-12 16:24:31.071 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -
+				Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-12 16:24:31.072 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet -
+				Initializing Servlet 'dispatcherServlet'
+2024-06-12 16:24:31.073 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet -
+				Completed initialization in 1 ms
+2024-06-12 16:24:31.704 [http-nio-8080-exec-4] INFO  o.s.api.AbstractOpenApiResource -
+				Init duration for springdoc-openapi is: 323 ms
+2024-06-12 16:24:50.966 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+				Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-06-12 16:24:50.973 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Waiting for workers to finish.
+2024-06-12 16:24:51.357 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Successfully waited for workers to finish.
+2024-06-12 16:24:51.358 [Thread-5] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Stopping ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:24:52.587 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-1 - Shutdown initiated...
+2024-06-12 16:24:52.589 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-1 - Shutdown completed.
+2024-06-12 16:24:52.684 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Starting GamehourApplication using Java 17.0.9 with PID 21748 (D:\eclipse\workspace\gamehour\target\classes started by nathan.zhao in D:\eclipse\workspace\gamehour)
+2024-06-12 16:24:52.684 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				No active profile set, falling back to 1 default profile: "default"
+2024-06-12 16:24:52.920 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-12 16:24:52.920 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-06-12 16:24:52.923 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2024-06-12 16:24:53.016 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat initialized with port 8080 (http)
+2024-06-12 16:24:53.017 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:24:53.017 [restartedMain] INFO  o.a.catalina.core.StandardService -
+				Starting service [Tomcat]
+2024-06-12 16:24:53.017 [restartedMain] INFO  o.a.catalina.core.StandardEngine -
+				Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-12 16:24:53.048 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2024-06-12 16:24:53.048 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -
+				Root WebApplicationContext: initialization completed in 362 ms
+2024-06-12 16:24:53.168 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-2 - Starting...
+2024-06-12 16:24:53.193 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool -
+				HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@484ad391
+2024-06-12 16:24:53.194 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-2 - Start completed.
+2024-06-12 16:24:53.313 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Attempting to connect to: localhost:5555
+2024-06-12 16:24:53.321 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Created new connection: connectionFactory#75d62112:0/SimpleConnection@366356bb [delegate=amqp://guest@127.0.0.1:5555/, localPort=65392]
+2024-06-12 16:24:53.376 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping -
+				Adding welcome page template: index
+2024-06-12 16:24:53.474 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Connecting to localhost with guest user, assuming development environment
+2024-06-12 16:24:53.474 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Using address resolver to always connect to localhost
+2024-06-12 16:24:53.701 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -
+				LiveReload server is running on port 35729
+2024-06-12 16:24:53.717 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:24:53.730 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat started on port 8080 (http) with context path '/'
+2024-06-12 16:24:53.741 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Started GamehourApplication in 1.093 seconds (process running for 43.822)
+2024-06-12 16:24:53.742 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener -
+				Condition evaluation unchanged
+2024-06-12 16:26:26.003 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+				Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-06-12 16:26:26.007 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Waiting for workers to finish.
+2024-06-12 16:26:26.065 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Successfully waited for workers to finish.
+2024-06-12 16:26:26.065 [Thread-7] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Stopping ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:26:27.282 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-2 - Shutdown initiated...
+2024-06-12 16:26:27.284 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-2 - Shutdown completed.
+2024-06-12 16:26:27.380 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Starting GamehourApplication using Java 17.0.9 with PID 21748 (D:\eclipse\workspace\gamehour\target\classes started by nathan.zhao in D:\eclipse\workspace\gamehour)
+2024-06-12 16:26:27.380 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				No active profile set, falling back to 1 default profile: "default"
+2024-06-12 16:26:27.586 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-12 16:26:27.586 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-06-12 16:26:27.590 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2024-06-12 16:26:27.719 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat initialized with port 8080 (http)
+2024-06-12 16:26:27.719 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:26:27.719 [restartedMain] INFO  o.a.catalina.core.StandardService -
+				Starting service [Tomcat]
+2024-06-12 16:26:27.719 [restartedMain] INFO  o.a.catalina.core.StandardEngine -
+				Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-12 16:26:27.753 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2024-06-12 16:26:27.754 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -
+				Root WebApplicationContext: initialization completed in 371 ms
+2024-06-12 16:26:27.973 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-3 - Starting...
+2024-06-12 16:26:28.007 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool -
+				HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@7fc154da
+2024-06-12 16:26:28.008 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-3 - Start completed.
+2024-06-12 16:26:28.157 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Attempting to connect to: localhost:5555
+2024-06-12 16:26:28.168 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Created new connection: connectionFactory#55aa433:0/SimpleConnection@46567f6d [delegate=amqp://guest@127.0.0.1:5555/, localPort=65465]
+2024-06-12 16:26:28.246 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping -
+				Adding welcome page template: index
+2024-06-12 16:26:28.383 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Connecting to localhost with guest user, assuming development environment
+2024-06-12 16:26:28.383 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Using address resolver to always connect to localhost
+2024-06-12 16:26:28.652 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -
+				LiveReload server is running on port 35729
+2024-06-12 16:26:28.666 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:26:28.677 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat started on port 8080 (http) with context path '/'
+2024-06-12 16:26:28.687 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Started GamehourApplication in 1.35 seconds (process running for 138.769)
+2024-06-12 16:26:28.688 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener -
+				Condition evaluation unchanged
+2024-06-12 16:26:49.422 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+				Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-06-12 16:26:49.426 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Waiting for workers to finish.
+2024-06-12 16:26:49.872 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Successfully waited for workers to finish.
+2024-06-12 16:26:49.872 [Thread-11] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Stopping ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:26:51.092 [Thread-11] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-3 - Shutdown initiated...
+2024-06-12 16:26:51.093 [Thread-11] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-3 - Shutdown completed.
+2024-06-12 16:26:51.200 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Starting GamehourApplication using Java 17.0.9 with PID 21748 (D:\eclipse\workspace\gamehour\target\classes started by nathan.zhao in D:\eclipse\workspace\gamehour)
+2024-06-12 16:26:51.201 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				No active profile set, falling back to 1 default profile: "default"
+2024-06-12 16:26:51.383 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-12 16:26:51.383 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-06-12 16:26:51.386 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2024-06-12 16:26:51.474 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat initialized with port 8080 (http)
+2024-06-12 16:26:51.475 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:26:51.475 [restartedMain] INFO  o.a.catalina.core.StandardService -
+				Starting service [Tomcat]
+2024-06-12 16:26:51.475 [restartedMain] INFO  o.a.catalina.core.StandardEngine -
+				Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-12 16:26:51.508 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2024-06-12 16:26:51.508 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -
+				Root WebApplicationContext: initialization completed in 306 ms
+2024-06-12 16:26:51.622 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-4 - Starting...
+2024-06-12 16:26:51.648 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool -
+				HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@248212e8
+2024-06-12 16:26:51.648 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-4 - Start completed.
+2024-06-12 16:26:51.785 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Attempting to connect to: localhost:5555
+2024-06-12 16:26:51.795 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Created new connection: connectionFactory#1835b547:0/SimpleConnection@1fb69ddd [delegate=amqp://guest@127.0.0.1:5555/, localPort=65492]
+2024-06-12 16:26:51.861 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping -
+				Adding welcome page template: index
+2024-06-12 16:26:51.978 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Connecting to localhost with guest user, assuming development environment
+2024-06-12 16:26:51.978 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Using address resolver to always connect to localhost
+2024-06-12 16:26:52.229 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -
+				LiveReload server is running on port 35729
+2024-06-12 16:26:52.244 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:26:52.260 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat started on port 8080 (http) with context path '/'
+2024-06-12 16:26:52.271 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Started GamehourApplication in 1.112 seconds (process running for 162.354)
+2024-06-12 16:26:52.273 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener -
+				Condition evaluation unchanged
+2024-06-12 16:34:34.793 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+				Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-06-12 16:34:34.798 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Waiting for workers to finish.
+2024-06-12 16:34:35.775 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Successfully waited for workers to finish.
+2024-06-12 16:34:35.776 [Thread-15] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Stopping ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:34:36.995 [Thread-15] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-4 - Shutdown initiated...
+2024-06-12 16:34:36.997 [Thread-15] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-4 - Shutdown completed.
+2024-06-12 16:34:37.088 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Starting GamehourApplication using Java 17.0.9 with PID 21748 (D:\eclipse\workspace\gamehour\target\classes started by nathan.zhao in D:\eclipse\workspace\gamehour)
+2024-06-12 16:34:37.088 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				No active profile set, falling back to 1 default profile: "default"
+2024-06-12 16:34:37.269 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-12 16:34:37.269 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-06-12 16:34:37.272 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2024-06-12 16:34:37.360 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat initialized with port 8080 (http)
+2024-06-12 16:34:37.361 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:34:37.361 [restartedMain] INFO  o.a.catalina.core.StandardService -
+				Starting service [Tomcat]
+2024-06-12 16:34:37.361 [restartedMain] INFO  o.a.catalina.core.StandardEngine -
+				Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-12 16:34:37.390 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2024-06-12 16:34:37.390 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -
+				Root WebApplicationContext: initialization completed in 299 ms
+2024-06-12 16:34:37.502 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-5 - Starting...
+2024-06-12 16:34:37.526 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool -
+				HikariPool-5 - Added connection org.postgresql.jdbc.PgConnection@28b4366
+2024-06-12 16:34:37.527 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-5 - Start completed.
+2024-06-12 16:34:37.611 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Attempting to connect to: localhost:5555
+2024-06-12 16:34:37.619 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Created new connection: connectionFactory#5b5b077e:0/SimpleConnection@3f5f414c [delegate=amqp://guest@127.0.0.1:5555/, localPort=49374]
+2024-06-12 16:34:37.681 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping -
+				Adding welcome page template: index
+2024-06-12 16:34:37.774 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Connecting to localhost with guest user, assuming development environment
+2024-06-12 16:34:37.774 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Using address resolver to always connect to localhost
+2024-06-12 16:34:37.948 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -
+				LiveReload server is running on port 35729
+2024-06-12 16:34:37.964 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:34:37.974 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat started on port 8080 (http) with context path '/'
+2024-06-12 16:34:37.984 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Started GamehourApplication in 0.934 seconds (process running for 628.072)
+2024-06-12 16:34:37.985 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener -
+				Condition evaluation unchanged
+2024-06-12 16:37:41.453 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+				Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-06-12 16:37:41.458 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Waiting for workers to finish.
+2024-06-12 16:37:41.515 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Successfully waited for workers to finish.
+2024-06-12 16:37:41.516 [Thread-19] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Stopping ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:37:42.724 [Thread-19] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-5 - Shutdown initiated...
+2024-06-12 16:37:42.726 [Thread-19] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-5 - Shutdown completed.
+2024-06-12 16:37:42.819 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Starting GamehourApplication using Java 17.0.9 with PID 21748 (D:\eclipse\workspace\gamehour\target\classes started by nathan.zhao in D:\eclipse\workspace\gamehour)
+2024-06-12 16:37:42.820 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				No active profile set, falling back to 1 default profile: "default"
+2024-06-12 16:37:43.106 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-12 16:37:43.106 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-06-12 16:37:43.109 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2024-06-12 16:37:43.195 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat initialized with port 8080 (http)
+2024-06-12 16:37:43.196 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:37:43.196 [restartedMain] INFO  o.a.catalina.core.StandardService -
+				Starting service [Tomcat]
+2024-06-12 16:37:43.196 [restartedMain] INFO  o.a.catalina.core.StandardEngine -
+				Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-12 16:37:43.227 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2024-06-12 16:37:43.227 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -
+				Root WebApplicationContext: initialization completed in 404 ms
+2024-06-12 16:37:43.567 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-6 - Starting...
+2024-06-12 16:37:43.622 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool -
+				HikariPool-6 - Added connection org.postgresql.jdbc.PgConnection@586bb0bf
+2024-06-12 16:37:43.622 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-6 - Start completed.
+2024-06-12 16:37:43.804 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Attempting to connect to: localhost:5555
+2024-06-12 16:37:43.819 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Created new connection: connectionFactory#6c730de7:0/SimpleConnection@2713782c [delegate=amqp://guest@127.0.0.1:5555/, localPort=49491]
+2024-06-12 16:37:43.932 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping -
+				Adding welcome page template: index
+2024-06-12 16:37:44.052 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Connecting to localhost with guest user, assuming development environment
+2024-06-12 16:37:44.052 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Using address resolver to always connect to localhost
+2024-06-12 16:37:44.225 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -
+				LiveReload server is running on port 35729
+2024-06-12 16:37:44.242 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:37:44.256 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat started on port 8080 (http) with context path '/'
+2024-06-12 16:37:44.265 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Started GamehourApplication in 1.484 seconds (process running for 814.355)
+2024-06-12 16:37:44.267 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener -
+				Condition evaluation unchanged
+2024-06-12 16:38:07.033 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+				Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-06-12 16:38:07.044 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Waiting for workers to finish.
+2024-06-12 16:38:07.471 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Successfully waited for workers to finish.
+2024-06-12 16:38:07.471 [Thread-23] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Stopping ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:38:08.637 [Thread-23] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-6 - Shutdown initiated...
+2024-06-12 16:38:08.644 [Thread-23] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-6 - Shutdown completed.
+2024-06-12 16:38:08.811 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Starting GamehourApplication using Java 17.0.9 with PID 21748 (D:\eclipse\workspace\gamehour\target\classes started by nathan.zhao in D:\eclipse\workspace\gamehour)
+2024-06-12 16:38:08.812 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				No active profile set, falling back to 1 default profile: "default"
+2024-06-12 16:38:09.473 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-12 16:38:09.474 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-06-12 16:38:09.478 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2024-06-12 16:38:09.614 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat initialized with port 8080 (http)
+2024-06-12 16:38:09.615 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:38:09.615 [restartedMain] INFO  o.a.catalina.core.StandardService -
+				Starting service [Tomcat]
+2024-06-12 16:38:09.615 [restartedMain] INFO  o.a.catalina.core.StandardEngine -
+				Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-12 16:38:09.673 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2024-06-12 16:38:09.673 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -
+				Root WebApplicationContext: initialization completed in 859 ms
+2024-06-12 16:38:10.032 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-7 - Starting...
+2024-06-12 16:38:10.076 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool -
+				HikariPool-7 - Added connection org.postgresql.jdbc.PgConnection@1982c18a
+2024-06-12 16:38:10.077 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-7 - Start completed.
+2024-06-12 16:38:10.233 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Attempting to connect to: localhost:5555
+2024-06-12 16:38:10.242 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Created new connection: connectionFactory#b6db69d:0/SimpleConnection@16d85e31 [delegate=amqp://guest@127.0.0.1:5555/, localPort=49519]
+2024-06-12 16:38:10.328 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping -
+				Adding welcome page template: index
+2024-06-12 16:38:10.429 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Connecting to localhost with guest user, assuming development environment
+2024-06-12 16:38:10.429 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Using address resolver to always connect to localhost
+2024-06-12 16:38:10.599 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -
+				LiveReload server is running on port 35729
+2024-06-12 16:38:10.613 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:38:10.624 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat started on port 8080 (http) with context path '/'
+2024-06-12 16:38:10.634 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Started GamehourApplication in 1.896 seconds (process running for 840.723)
+2024-06-12 16:38:10.635 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener -
+				Condition evaluation unchanged
+2024-06-12 16:38:12.024 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+				Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2024-06-12 16:38:12.027 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Waiting for workers to finish.
+2024-06-12 16:38:12.646 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Successfully waited for workers to finish.
+2024-06-12 16:38:12.646 [Thread-27] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Stopping ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:38:13.869 [Thread-27] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-7 - Shutdown initiated...
+2024-06-12 16:38:13.871 [Thread-27] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-7 - Shutdown completed.
+2024-06-12 16:38:14.028 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Starting GamehourApplication using Java 17.0.9 with PID 21748 (D:\eclipse\workspace\gamehour\target\classes started by nathan.zhao in D:\eclipse\workspace\gamehour)
+2024-06-12 16:38:14.029 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				No active profile set, falling back to 1 default profile: "default"
+2024-06-12 16:38:14.355 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-12 16:38:14.355 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-06-12 16:38:14.358 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2024-06-12 16:38:14.718 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat initialized with port 8080 (http)
+2024-06-12 16:38:14.719 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:38:14.720 [restartedMain] INFO  o.a.catalina.core.StandardService -
+				Starting service [Tomcat]
+2024-06-12 16:38:14.720 [restartedMain] INFO  o.a.catalina.core.StandardEngine -
+				Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-12 16:38:14.794 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2024-06-12 16:38:14.795 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -
+				Root WebApplicationContext: initialization completed in 763 ms
+2024-06-12 16:38:15.138 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-8 - Starting...
+2024-06-12 16:38:15.176 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool -
+				HikariPool-8 - Added connection org.postgresql.jdbc.PgConnection@291bdf42
+2024-06-12 16:38:15.176 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-8 - Start completed.
+2024-06-12 16:38:15.318 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Attempting to connect to: localhost:5555
+2024-06-12 16:38:15.330 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Created new connection: connectionFactory#1f077184:0/SimpleConnection@1f7e80aa [delegate=amqp://guest@127.0.0.1:5555/, localPort=49536]
+2024-06-12 16:38:15.413 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping -
+				Adding welcome page template: index
+2024-06-12 16:38:15.512 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Connecting to localhost with guest user, assuming development environment
+2024-06-12 16:38:15.512 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Using address resolver to always connect to localhost
+2024-06-12 16:38:15.685 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -
+				LiveReload server is running on port 35729
+2024-06-12 16:38:15.702 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:38:15.712 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat started on port 8080 (http) with context path '/'
+2024-06-12 16:38:15.722 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Started GamehourApplication in 1.765 seconds (process running for 845.811)
+2024-06-12 16:38:15.723 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener -
+				Condition evaluation unchanged
+2024-06-12 16:38:17.125 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+				Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-06-12 16:38:17.129 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Waiting for workers to finish.
+2024-06-12 16:38:17.730 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Successfully waited for workers to finish.
+2024-06-12 16:38:17.730 [Thread-31] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Stopping ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:38:18.931 [Thread-31] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-8 - Shutdown initiated...
+2024-06-12 16:38:18.937 [Thread-31] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-8 - Shutdown completed.
+2024-06-12 16:38:19.014 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Starting GamehourApplication using Java 17.0.9 with PID 21748 (D:\eclipse\workspace\gamehour\target\classes started by nathan.zhao in D:\eclipse\workspace\gamehour)
+2024-06-12 16:38:19.014 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				No active profile set, falling back to 1 default profile: "default"
+2024-06-12 16:38:19.474 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-12 16:38:19.475 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-06-12 16:38:19.481 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2024-06-12 16:38:19.822 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat initialized with port 8080 (http)
+2024-06-12 16:38:19.824 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:38:19.824 [restartedMain] INFO  o.a.catalina.core.StandardService -
+				Starting service [Tomcat]
+2024-06-12 16:38:19.824 [restartedMain] INFO  o.a.catalina.core.StandardEngine -
+				Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-12 16:38:19.894 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2024-06-12 16:38:19.894 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -
+				Root WebApplicationContext: initialization completed in 878 ms
+2024-06-12 16:38:20.123 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-9 - Starting...
+2024-06-12 16:38:20.170 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool -
+				HikariPool-9 - Added connection org.postgresql.jdbc.PgConnection@ce3cd6e
+2024-06-12 16:38:20.170 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-9 - Start completed.
+2024-06-12 16:38:20.472 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Attempting to connect to: localhost:5555
+2024-06-12 16:38:20.492 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Created new connection: connectionFactory#262875cd:0/SimpleConnection@183304dd [delegate=amqp://guest@127.0.0.1:5555/, localPort=49552]
+2024-06-12 16:38:20.689 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping -
+				Adding welcome page template: index
+2024-06-12 16:38:20.870 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Connecting to localhost with guest user, assuming development environment
+2024-06-12 16:38:20.870 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Using address resolver to always connect to localhost
+2024-06-12 16:38:21.171 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -
+				LiveReload server is running on port 35729
+2024-06-12 16:38:21.198 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:38:21.219 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat started on port 8080 (http) with context path '/'
+2024-06-12 16:38:21.235 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Started GamehourApplication in 2.25 seconds (process running for 851.325)
+2024-06-12 16:38:21.238 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener -
+				Condition evaluation unchanged
+2024-06-12 16:38:22.599 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+				Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-06-12 16:38:22.602 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Waiting for workers to finish.
+2024-06-12 16:38:23.250 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Successfully waited for workers to finish.
+2024-06-12 16:38:23.250 [Thread-35] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Stopping ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:38:24.465 [Thread-35] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-9 - Shutdown initiated...
+2024-06-12 16:38:24.469 [Thread-35] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-9 - Shutdown completed.
+2024-06-12 16:38:24.546 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Starting GamehourApplication using Java 17.0.9 with PID 21748 (D:\eclipse\workspace\gamehour\target\classes started by nathan.zhao in D:\eclipse\workspace\gamehour)
+2024-06-12 16:38:24.546 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				No active profile set, falling back to 1 default profile: "default"
+2024-06-12 16:38:24.888 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-12 16:38:24.889 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-06-12 16:38:24.898 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2024-06-12 16:38:25.087 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat initialized with port 8080 (http)
+2024-06-12 16:38:25.088 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:38:25.088 [restartedMain] INFO  o.a.catalina.core.StandardService -
+				Starting service [Tomcat]
+2024-06-12 16:38:25.089 [restartedMain] INFO  o.a.catalina.core.StandardEngine -
+				Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-12 16:38:25.132 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2024-06-12 16:38:25.132 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -
+				Root WebApplicationContext: initialization completed in 585 ms
+2024-06-12 16:38:25.263 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-10 - Starting...
+2024-06-12 16:38:25.286 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool -
+				HikariPool-10 - Added connection org.postgresql.jdbc.PgConnection@1c7e2556
+2024-06-12 16:38:25.286 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-10 - Start completed.
+2024-06-12 16:38:25.367 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Attempting to connect to: localhost:5555
+2024-06-12 16:38:25.373 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Created new connection: connectionFactory#3764f335:0/SimpleConnection@36f4eaf4 [delegate=amqp://guest@127.0.0.1:5555/, localPort=49565]
+2024-06-12 16:38:25.430 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping -
+				Adding welcome page template: index
+2024-06-12 16:38:25.528 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Connecting to localhost with guest user, assuming development environment
+2024-06-12 16:38:25.528 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Using address resolver to always connect to localhost
+2024-06-12 16:38:25.725 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -
+				LiveReload server is running on port 35729
+2024-06-12 16:38:25.740 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:38:25.749 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat started on port 8080 (http) with context path '/'
+2024-06-12 16:38:25.759 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Started GamehourApplication in 1.244 seconds (process running for 855.848)
+2024-06-12 16:38:25.760 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener -
+				Condition evaluation unchanged
+2024-06-12 16:38:56.662 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+				Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-06-12 16:38:56.669 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Waiting for workers to finish.
+2024-06-12 16:38:56.997 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Successfully waited for workers to finish.
+2024-06-12 16:38:56.997 [Thread-39] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Stopping ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:38:58.214 [Thread-39] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-10 - Shutdown initiated...
+2024-06-12 16:38:58.216 [Thread-39] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-10 - Shutdown completed.
+2024-06-12 16:38:58.328 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Starting GamehourApplication using Java 17.0.9 with PID 21748 (D:\eclipse\workspace\gamehour\target\classes started by nathan.zhao in D:\eclipse\workspace\gamehour)
+2024-06-12 16:38:58.328 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				No active profile set, falling back to 1 default profile: "default"
+2024-06-12 16:38:59.012 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-12 16:38:59.013 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-06-12 16:38:59.026 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2024-06-12 16:38:59.294 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat initialized with port 8080 (http)
+2024-06-12 16:38:59.295 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:38:59.295 [restartedMain] INFO  o.a.catalina.core.StandardService -
+				Starting service [Tomcat]
+2024-06-12 16:38:59.295 [restartedMain] INFO  o.a.catalina.core.StandardEngine -
+				Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-12 16:38:59.331 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2024-06-12 16:38:59.331 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -
+				Root WebApplicationContext: initialization completed in 1000 ms
+2024-06-12 16:38:59.466 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-11 - Starting...
+2024-06-12 16:38:59.490 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool -
+				HikariPool-11 - Added connection org.postgresql.jdbc.PgConnection@3b7da950
+2024-06-12 16:38:59.490 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-11 - Start completed.
+2024-06-12 16:38:59.577 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Attempting to connect to: localhost:5555
+2024-06-12 16:38:59.584 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Created new connection: connectionFactory#3b9fabdb:0/SimpleConnection@24ff221c [delegate=amqp://guest@127.0.0.1:5555/, localPort=49604]
+2024-06-12 16:38:59.645 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping -
+				Adding welcome page template: index
+2024-06-12 16:38:59.770 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Connecting to localhost with guest user, assuming development environment
+2024-06-12 16:38:59.770 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Using address resolver to always connect to localhost
+2024-06-12 16:39:00.186 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -
+				LiveReload server is running on port 35729
+2024-06-12 16:39:00.213 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:39:00.229 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat started on port 8080 (http) with context path '/'
+2024-06-12 16:39:00.243 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Started GamehourApplication in 1.966 seconds (process running for 890.333)
+2024-06-12 16:39:00.245 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener -
+				Condition evaluation unchanged
+2024-06-12 16:39:01.621 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+				Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-06-12 16:39:01.625 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Waiting for workers to finish.
+2024-06-12 16:39:02.259 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Successfully waited for workers to finish.
+2024-06-12 16:39:02.259 [Thread-43] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Stopping ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:39:03.457 [Thread-43] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-11 - Shutdown initiated...
+2024-06-12 16:39:03.460 [Thread-43] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-11 - Shutdown completed.
+2024-06-12 16:39:03.533 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Starting GamehourApplication using Java 17.0.9 with PID 21748 (D:\eclipse\workspace\gamehour\target\classes started by nathan.zhao in D:\eclipse\workspace\gamehour)
+2024-06-12 16:39:03.533 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				No active profile set, falling back to 1 default profile: "default"
+2024-06-12 16:39:03.960 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-12 16:39:03.960 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-06-12 16:39:03.965 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2024-06-12 16:39:04.141 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat initialized with port 8080 (http)
+2024-06-12 16:39:04.142 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:39:04.142 [restartedMain] INFO  o.a.catalina.core.StandardService -
+				Starting service [Tomcat]
+2024-06-12 16:39:04.142 [restartedMain] INFO  o.a.catalina.core.StandardEngine -
+				Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-12 16:39:04.177 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2024-06-12 16:39:04.178 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -
+				Root WebApplicationContext: initialization completed in 643 ms
+2024-06-12 16:39:04.297 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-12 - Starting...
+2024-06-12 16:39:04.320 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool -
+				HikariPool-12 - Added connection org.postgresql.jdbc.PgConnection@3ab6cb21
+2024-06-12 16:39:04.320 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-12 - Start completed.
+2024-06-12 16:39:04.405 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Attempting to connect to: localhost:5555
+2024-06-12 16:39:04.412 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Created new connection: connectionFactory#5b00c650:0/SimpleConnection@5bb55421 [delegate=amqp://guest@127.0.0.1:5555/, localPort=49620]
+2024-06-12 16:39:04.466 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping -
+				Adding welcome page template: index
+2024-06-12 16:39:04.553 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Connecting to localhost with guest user, assuming development environment
+2024-06-12 16:39:04.553 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Using address resolver to always connect to localhost
+2024-06-12 16:39:04.732 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -
+				LiveReload server is running on port 35729
+2024-06-12 16:39:04.744 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:39:04.753 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat started on port 8080 (http) with context path '/'
+2024-06-12 16:39:04.762 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Started GamehourApplication in 1.257 seconds (process running for 894.852)
+2024-06-12 16:39:04.763 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener -
+				Condition evaluation unchanged
+2024-06-12 16:39:08.183 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener -
+				Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-06-12 16:39:08.187 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Waiting for workers to finish.
+2024-06-12 16:39:08.790 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer -
+				Successfully waited for workers to finish.
+2024-06-12 16:39:08.790 [Thread-47] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Stopping ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:39:10.004 [Thread-47] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-12 - Shutdown initiated...
+2024-06-12 16:39:10.009 [Thread-47] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-12 - Shutdown completed.
+2024-06-12 16:39:10.086 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Starting GamehourApplication using Java 17.0.9 with PID 21748 (D:\eclipse\workspace\gamehour\target\classes started by nathan.zhao in D:\eclipse\workspace\gamehour)
+2024-06-12 16:39:10.086 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				No active profile set, falling back to 1 default profile: "default"
+2024-06-12 16:39:10.473 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-12 16:39:10.473 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-06-12 16:39:10.482 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2024-06-12 16:39:10.648 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat initialized with port 8080 (http)
+2024-06-12 16:39:10.649 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:39:10.649 [restartedMain] INFO  o.a.catalina.core.StandardService -
+				Starting service [Tomcat]
+2024-06-12 16:39:10.649 [restartedMain] INFO  o.a.catalina.core.StandardEngine -
+				Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-12 16:39:10.698 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2024-06-12 16:39:10.699 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -
+				Root WebApplicationContext: initialization completed in 611 ms
+2024-06-12 16:39:10.851 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-13 - Starting...
+2024-06-12 16:39:10.877 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool -
+				HikariPool-13 - Added connection org.postgresql.jdbc.PgConnection@7599c6a6
+2024-06-12 16:39:10.878 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource -
+				HikariPool-13 - Start completed.
+2024-06-12 16:39:10.966 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Attempting to connect to: localhost:5555
+2024-06-12 16:39:10.972 [restartedMain] INFO  o.s.a.r.c.CachingConnectionFactory -
+				Created new connection: connectionFactory#4625fc22:0/SimpleConnection@1533768f [delegate=amqp://guest@127.0.0.1:5555/, localPort=49637]
+2024-06-12 16:39:11.027 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping -
+				Adding welcome page template: index
+2024-06-12 16:39:11.118 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Connecting to localhost with guest user, assuming development environment
+2024-06-12 16:39:11.118 [restartedMain] INFO  c.r.stream.impl.StreamEnvironment -
+				Using address resolver to always connect to localhost
+2024-06-12 16:39:11.350 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -
+				LiveReload server is running on port 35729
+2024-06-12 16:39:11.376 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-8080"]
+2024-06-12 16:39:11.390 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat started on port 8080 (http) with context path '/'
+2024-06-12 16:39:11.408 [restartedMain] INFO  c.t.gamehour.GamehourApplication -
+				Started GamehourApplication in 1.354 seconds (process running for 901.497)
+2024-06-12 16:39:11.410 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener -
+				Condition evaluation unchanged

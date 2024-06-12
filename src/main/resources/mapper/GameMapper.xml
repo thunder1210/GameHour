@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thunder.gamehour.dao.mapper.GameMapper">
+
+	<!-- 依照關鍵字搜尋遊戲 -->
+	<select id="getGameByName"
+		resultType="com.thunder.gamehour.dao.model.Game">
+		SELECT ID, CHN_NAME, PLATFORM, ENG_NAME, RELEASE_DATE,
+		GAME_TYPE FROM GAME
+		WHERE CHN_NAME LIKE CONCAT('%', #{KEYWORD}, '%') OR
+		ENG_NAME LIKE CONCAT('%', #{KEYWORD}, '%')
+	</select>
+
+</mapper>

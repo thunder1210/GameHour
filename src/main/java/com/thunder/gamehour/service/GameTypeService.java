@@ -6,6 +6,9 @@ import com.thunder.gamehour.dao.mapper.GameTypeMapper;
 import com.thunder.gamehour.dao.model.GameType;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * 處理[遊戲類型資料]相關邏輯與資料返回
+ */
 @Service
 @RequiredArgsConstructor
 public class GameTypeService {
