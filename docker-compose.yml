@@ -11,8 +11,8 @@ services:
     volumes:
       - /rabbit
     ports:
-      - 5555:5672
-      - 15555:15672
+      - "5555:5672"
+      - "15555:15672"
     restart: always
 
   postgres:
@@ -23,7 +23,7 @@ services:
       POSTGRES_PASSWORD: A123B456
       POSTGRES_DB: gamehour
     ports: 
-      - 5432:5432
+      - "5432:5432"
 
   redis:
     image: redis:7.2.5       
@@ -32,4 +32,4 @@ services:
       REDIS_PASSWORD: 
       REDIS_BIND: 0.0.0.0
     ports: 
-      - 6379:6379
+      - "6379:6379"

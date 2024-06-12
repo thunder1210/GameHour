@@ -23,7 +23,7 @@ public class GameRoomService {
 	/**
 	 * 創建遊戲房間
 	 * 
-	 * @param member 新遊戲房間資料
+	 * @param gameRoom 新遊戲房間資料
 	 */
 	public void createGameRoom(GameRoom gameRoom) {
 		gameRoomMapper.createGameRoom(gameRoom);
@@ -32,9 +32,9 @@ public class GameRoomService {
 	/**
 	 * 創建限時遊戲房間
 	 * 
-	 * @param member 限時遊戲房資料
+	 * @param gameRoom 限時遊戲房資料
 	 */
-	public void createLimetedGameRoom(GameRoom gameRoom) {
+	public void createLimitedGameRoom(GameRoom gameRoom) {
 		gameRoomMapper.createGameRoom(gameRoom);
 		memberMapper.updateMemberCurrentRoomStatus(gameRoom.getId(), gameRoom.getHost());
 	}

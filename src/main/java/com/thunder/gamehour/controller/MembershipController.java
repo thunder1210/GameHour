@@ -22,7 +22,7 @@ public class MembershipController {
 	/**
 	 * 創建新會員
 	 * 
-	 * @param member 新會員資料
+	 * @param newMember 新會員資料
 	 */
 	@PostMapping("/member")
 	public void createNewMember(@RequestBody Member newMember) {

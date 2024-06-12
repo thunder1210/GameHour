@@ -54,4 +54,10 @@ public class SystemConst {
 	 */
 	public static final String TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
+	/**
+	 * Private Constructor to prevent direct instantiation
+	 */
+	private SystemConst() {
+	}
+
 }

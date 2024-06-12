@@ -60,7 +60,7 @@ public class GameRoomController {
 	 */
 	@PostMapping("/gameRoom/limited")
 	public void createTimeLimitedRoom(@RequestBody GameRoom newGameRoom) {
-		gameRoomService.createLimetedGameRoom(newGameRoom);
+		gameRoomService.createLimitedGameRoom(newGameRoom);
 		try {
 			rabbitService.sendOutGameRoomMessage(SystemConst.GAME_ROOM_EXCHANGE,
 					SystemConst.GAME_ROOM_EXCHANGE_ROUTING_KEY, newGameRoom);

@@ -10,7 +10,7 @@ public class SteamController {
 
 	private static final String STEAMSPY_API_URL = "https://steamspy.com/api.php?request=top100in2weeks";
 
-	@GetMapping("/topgames")
+	@GetMapping("/topGames")
 	public ResponseEntity<String> getTopGames() {
 		RestTemplate restTemplate = new RestTemplate();
 		String response = restTemplate.getForObject(STEAMSPY_API_URL, String.class);
