@@ -55,7 +55,7 @@ public class RedisCacheConfig implements KeyGenerator {
 	}
 
 	/**
-	 * RedisTemplate 設置
+	 * RedisTemplate List設置
 	 */
 	@Bean
 	RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory connectionFactory) {
