@@ -7,6 +7,8 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import com.thunder.gamehour.dao.mapper.MemberMapper;
 import com.thunder.gamehour.dao.model.Member;
+import com.thunder.gamehour.dao.model.MemberIntestestedGame;
+
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -31,6 +33,16 @@ public class MembershipService {
 			member.setMemberName("訪客#".concat(String.valueOf(100000 + random.nextInt(900000))));
 		}
 		memberMapper.createNewMember(member);
+	}
+
+	/**
+	 * 查找會員以及喜愛的遊戲和遊戲房
+	 * 
+	 * @param memberId 會員ID
+	 * @return 查詢結果(MemberIntestestedGame物件)
+	 */
+	public MemberIntestestedGame getMemberWithFavGameAndRoom(Long memberId) {
+		return memberMapper.getMemberWithFavGameAndRoom(memberId);
 	}
 
 	/**

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration>
 <configuration>
+
 	<appender name="CONSOLE"
 		class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
@@ -8,12 +9,13 @@
 				%msg%n</pattern>
 		</encoder>
 	</appender>
+
 	<appender name="FILE"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>logs/myapp.log</file>
+		<file>logs/gamehour.log</file>
 		<rollingPolicy
 			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>logs/gamehour-%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+			<fileNamePattern>logs/gamehour-%d{yyyy-MM-dd}.log</fileNamePattern>
 			<maxHistory>30</maxHistory> <!-- 保存30天的日志文件 -->
 		</rollingPolicy>
 		<encoder>

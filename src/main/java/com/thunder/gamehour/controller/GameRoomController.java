@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.thunder.gamehour.dao.model.GameRoom;
-import com.thunder.gamehour.dao.model.RoomSearchCondition;
+import com.thunder.gamehour.dao.model.SearchRoomCondition;
 import com.thunder.gamehour.service.GameRoomService;
 import com.thunder.gamehour.service.RabbitService;
 import com.thunder.gamehour.systemconst.SystemConst;
@@ -49,7 +49,7 @@ public class GameRoomController {
 	 * 依照條件搜尋線上房間
 	 */
 	@PostMapping("/gameRoom/search")
-	public List<GameRoom> getGameRoomWithCondition(@RequestBody RoomSearchCondition roomSearchCondition) {
+	public List<GameRoom> getGameRoomWithCondition(@RequestBody SearchRoomCondition roomSearchCondition) {
 		return gameRoomService.getGameRoomWithCondition(roomSearchCondition);
 	}
 

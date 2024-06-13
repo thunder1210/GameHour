@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import com.thunder.gamehour.dao.model.GameRoom;
-import com.thunder.gamehour.dao.model.RoomSearchCondition;
+import com.thunder.gamehour.dao.model.SearchRoomCondition;
 
 /**
  * MyBatis Mapper for GameRoom operation
@@ -28,6 +28,14 @@ public interface GameRoomMapper {
 	void deleteRoomByHostAndRoomName(@Param("gameRoom") GameRoom gameRoom);
 
 	/**
+	 * 依照會員ID搜尋遊戲房
+	 * 
+	 * @param memberId 會員ID
+	 * @return 遊戲房間List
+	 */
+	List<GameRoom> getGameRoomById(@Param("memberId") Long memberId);
+
+	/**
 	 * 查詢所有線上遊戲房間
 	 * 
 	 * @return 遊戲房間List
@@ -40,6 +48,6 @@ public interface GameRoomMapper {
 	 * @param roomSearchCondition 搜尋條件
 	 * @return 遊戲房間查詢結果
 	 */
-	List<GameRoom> getGameRoomWithCondition(@Param("roomSearchCondition") RoomSearchCondition roomSearchCondition);
+	List<GameRoom> getGameRoomWithCondition(@Param("roomSearchCondition") SearchRoomCondition roomSearchCondition);
 
 }

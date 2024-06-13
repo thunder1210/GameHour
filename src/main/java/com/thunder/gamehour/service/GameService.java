@@ -19,6 +19,7 @@ public class GameService {
 	/**
 	 * 依照關鍵字搜尋遊戲
 	 * 
+	 * @param keyword 搜尋內容
 	 * @return 搜尋結果
 	 */
 	public List<Game> getGameByName(String keyword) {

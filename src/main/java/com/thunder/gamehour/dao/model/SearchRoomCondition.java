@@ -8,7 +8,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class RoomSearchCondition {
+public class SearchRoomCondition {
 
 	/**
 	 * 遊戲房間類型 (一般房/限時房/全部)

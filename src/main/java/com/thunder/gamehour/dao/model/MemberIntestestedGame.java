@@ -1,29 +1,21 @@
 package com.thunder.gamehour.dao.model;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 
 /**
- * 會員資料
+ * 存取會員所感興趣的所有遊戲以及相關遊戲房
  */
 @Getter
 @Setter
-public class Member {
+public class MemberIntestestedGame {
 
 	/**
 	 * 會員ID
 	 */
 	private Long memberId;
-
-	/**
-	 * 會員帳號
-	 */
-	private String memberAccount;
-
-	/**
-	 * 會員Password
-	 */
-	private String memberPassword;
 
 	/**
 	 * 會員性別
@@ -41,13 +33,18 @@ public class Member {
 	private Boolean memberOnlineStatus;
 
 	/**
-	 * 會員當前所在房間
-	 */
-	private String memberCurrentRoom;
-
-	/**
-	 * 會員喜好遊戲類型 (最多5項)
+	 * 會員喜好遊戲類型
 	 */
 	private String favoriteGameType;
+
+	/**
+	 * 會員所感興趣的所有遊戲
+	 */
+	private List<Game> interestedGames;
+
+	/**
+	 * 會員感興趣的遊戲的相關房間
+	 */
+	private List<GameRoom> interestedGameRooms;
 
 }

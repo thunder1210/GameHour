@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.thunder.gamehour.dao.model.Member;
+import com.thunder.gamehour.dao.model.MemberIntestestedGame;
 
 /**
  * MyBatis Mapper for Member data operation
@@ -34,5 +35,13 @@ public interface MemberMapper {
 	 * @return 線上會員List
 	 */
 	List<Member> getOnlineMembers();
+
+	/**
+	 * 查找會員以及喜愛的遊戲和遊戲房
+	 * 
+	 * @param memberId 會員ID
+	 * @return 查詢結果(MemberIntestestedGame物件)
+	 */
+	MemberIntestestedGame getMemberWithFavGameAndRoom(@Param("memberId") Long memberId);
 
 }

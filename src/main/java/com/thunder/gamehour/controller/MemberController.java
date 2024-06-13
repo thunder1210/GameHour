@@ -4,8 +4,10 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.thunder.gamehour.dao.model.Member;
+import com.thunder.gamehour.dao.model.MemberIntestestedGame;
 import com.thunder.gamehour.service.MembershipService;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +17,7 @@ import lombok.RequiredArgsConstructor;
  */
 @RestController
 @RequiredArgsConstructor
-public class MembershipController {
+public class MemberController {
 
 	private final MembershipService membershipService;
 
@@ -27,6 +29,17 @@ public class MembershipController {
 	@PostMapping("/member")
 	public void createNewMember(@RequestBody Member newMember) {
 		membershipService.createNewMember(newMember);
+	}
+
+	/**
+	 * 查找會員以及喜愛的遊戲和遊戲房
+	 * 
+	 * @param memberId 會員ID
+	 * @return 查詢結果(MemberIntestestedGame物件)
+	 */
+	@PostMapping("/member/favorite")
+	public MemberIntestestedGame getMemberWithFavGameAndRoom(@RequestParam Long memberId) {
+		return membershipService.getMemberWithFavGameAndRoom(memberId);
 	}
 
 	/**

@@ -2,6 +2,43 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.thunder.gamehour.dao.mapper.MemberMapper">
 
+	<!-- 查找會員以及喜愛的遊戲和遊戲房 -->
+	<select id="getMemberWithFavGameAndRoom"
+		resultMap="MemberRoomResultMap">
+		SELECT MEMBER_ID, MEMBER_ACCOUNT,
+		MEMBER_NAME,
+		FAVORITE_GAME_TYPE
+		FROM
+		MEMBER
+		WHERE MEMBER_ID =
+		#{memberId}
+	</select>
+
+	<!-- 查找會員以及喜愛的遊戲和遊戲房(ResultMap物件) -->
+	<resultMap id="MemberRoomResultMap"
+		type="com.thunder.gamehour.dao.model.MemberIntestestedGame">
+		<collection property="interestedGameRooms"
+			select="com.thunder.gamehour.dao.mapper.GameRoomMapper.getGameRoomById"
+			column="gameRoomId=MEMBER_ID">
+			<id column="id" property="id" />
+			<result column="room_name" property="roomName" />
+			<result column="game_name" property="gameName" />
+			<result column="platform" property="platform" />
+			<result column="host" property="host" />
+			<result column="is_time_limited" property="isTimeLimited" />
+		</collection>
+		<collection property="interestedGames"
+			select="com.thunder.gamehour.dao.mapper.GameMapper.getGameByFavoriteType"
+			column="favoriteGameType=FAVORITE_GAME_TYPE">
+			<id column="id" property="id" />
+			<result column="chn_name" property="chnName" />
+			<result column="platform" property="platform" />
+			<result column="eng_name" property="engName" />
+			<result column="release_date" property="releaseDate" />
+			<result column="game_type" property="gameType" />
+		</collection>
+	</resultMap>
+
 	<!-- 創建新會員 -->
 	<insert id="createNewMember"
 		parameterType="com.thunder.gamehour.dao.model.Member">
@@ -34,7 +71,9 @@
 		MEMBER_NAME, MEMBER_ONLINE_STATUS, FAVORITE_GAME_TYPE,
 		MEMBER_CURRENT_ROOM
 		FROM MEMBER
-		ORDER BY MEMBER_ID
+		WHERE MEMBER_ONLINE_STATUS = true
+		ORDER
+		BY MEMBER_ID
 	</select>
 
 </mapper>

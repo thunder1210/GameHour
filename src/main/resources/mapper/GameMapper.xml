@@ -11,4 +11,14 @@
 		ENG_NAME LIKE CONCAT('%', #{KEYWORD}, '%')
 	</select>
 
+	<!-- 依照會員喜好搜尋遊戲 -->
+	<select id="getGameByFavoriteType"
+		resultType="com.thunder.gamehour.dao.model.Game">
+		SELECT ID, CHN_NAME, PLATFORM, ENG_NAME, RELEASE_DATE,
+		GAME_TYPE FROM GAME
+		WHERE ID IN (SELECT
+		unnest(string_to_array(
+		#{favoriteGameType} , ','))::INTEGER)
+	</select>
+
 </mapper>
