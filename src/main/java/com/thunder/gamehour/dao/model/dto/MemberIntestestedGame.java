@@ -1,6 +1,9 @@
-package com.thunder.gamehour.dao.model;
+package com.thunder.gamehour.dao.model.dto;
 
 import java.util.List;
+
+import com.thunder.gamehour.dao.model.Game;
+import com.thunder.gamehour.dao.model.GameRoom;
 
 import lombok.Getter;
 import lombok.Setter;

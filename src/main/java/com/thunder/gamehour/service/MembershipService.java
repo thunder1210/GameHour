@@ -7,7 +7,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import com.thunder.gamehour.dao.mapper.MemberMapper;
 import com.thunder.gamehour.dao.model.Member;
-import com.thunder.gamehour.dao.model.MemberIntestestedGame;
+import com.thunder.gamehour.dao.model.dto.MemberIntestestedGame;
 
 import lombok.RequiredArgsConstructor;
 

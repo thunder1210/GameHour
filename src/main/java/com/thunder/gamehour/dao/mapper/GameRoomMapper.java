@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import com.thunder.gamehour.dao.model.GameRoom;
-import com.thunder.gamehour.dao.model.SearchRoomCondition;
+import com.thunder.gamehour.dao.model.dto.SearchRoomCondition;
 
 /**
  * MyBatis Mapper for GameRoom operation

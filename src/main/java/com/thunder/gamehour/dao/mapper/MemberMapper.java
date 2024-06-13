@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.thunder.gamehour.dao.model.Member;
-import com.thunder.gamehour.dao.model.MemberIntestestedGame;
+import com.thunder.gamehour.dao.model.dto.MemberIntestestedGame;
 
 /**
  * MyBatis Mapper for Member data operation

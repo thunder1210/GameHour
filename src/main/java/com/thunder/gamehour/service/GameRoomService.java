@@ -6,7 +6,8 @@ import org.springframework.stereotype.Service;
 import com.thunder.gamehour.dao.mapper.GameRoomMapper;
 import com.thunder.gamehour.dao.mapper.MemberMapper;
 import com.thunder.gamehour.dao.model.GameRoom;
-import com.thunder.gamehour.dao.model.SearchRoomCondition;
+import com.thunder.gamehour.dao.model.dto.SearchRoomCondition;
+
 import lombok.RequiredArgsConstructor;
 
 /**

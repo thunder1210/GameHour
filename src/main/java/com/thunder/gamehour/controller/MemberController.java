@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.thunder.gamehour.dao.model.Member;
-import com.thunder.gamehour.dao.model.MemberIntestestedGame;
+import com.thunder.gamehour.dao.model.dto.MemberIntestestedGame;
 import com.thunder.gamehour.service.MembershipService;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.RequiredArgsConstructor;

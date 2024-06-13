@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.thunder.gamehour.dao.model.GameRoom;
-import com.thunder.gamehour.dao.model.SearchRoomCondition;
+import com.thunder.gamehour.dao.model.dto.SearchRoomCondition;
 import com.thunder.gamehour.service.GameRoomService;
 import com.thunder.gamehour.service.RabbitService;
 import com.thunder.gamehour.systemconst.SystemConst;

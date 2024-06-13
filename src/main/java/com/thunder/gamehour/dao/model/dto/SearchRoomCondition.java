@@ -1,4 +1,4 @@
-package com.thunder.gamehour.dao.model;
+package com.thunder.gamehour.dao.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;
