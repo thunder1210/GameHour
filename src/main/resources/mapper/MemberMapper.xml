@@ -16,7 +16,7 @@
 
 	<!-- 查找會員以及喜愛的遊戲和遊戲房(ResultMap物件) -->
 	<resultMap id="MemberRoomResultMap"
-		type="com.thunder.gamehour.dao.model.MemberIntestestedGame">
+		type="com.thunder.gamehour.dao.model.dto.MemberIntestestedGame">
 		<collection property="interestedGameRooms"
 			select="com.thunder.gamehour.dao.mapper.GameRoomMapper.getGameRoomById"
 			column="gameRoomId=MEMBER_ID">

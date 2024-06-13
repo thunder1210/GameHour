@@ -1,9 +1,6 @@
 package com.thunder.gamehour.config;
 
 import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Map;
-
 import jakarta.annotation.Nonnull;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
@@ -37,7 +34,6 @@ public class RedisCacheConfig implements KeyGenerator {
 	 */
 	@Bean
 	CacheManager cacheManager(RedisConnectionFactory redisConnectionFactory) {
-
 		// RedisCacheConfiguration初始化設定
 		RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
 				.entryTtl(java.time.Duration.ofMinutes(SystemConst.CACHE_TTL_TIME))
@@ -46,12 +42,6 @@ public class RedisCacheConfig implements KeyGenerator {
 						RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer()))
 				.serializeValuesWith(RedisSerializationContext.SerializationPair
 						.fromSerializer(new GenericJackson2JsonRedisSerializer()));
-
-		// 設置線上會員列表(onlineMemberList)的緩存時間
-		Map<String, RedisCacheConfiguration> cacheConfigurations = new HashMap<>();
-		cacheConfigurations.put("onlineMemberList",
-				RedisCacheConfiguration.defaultCacheConfig().entryTtl(SystemConst.ONLINE_MEMBER_LIST_CACHE_TIME));
-
 		return RedisCacheManager.builder(redisConnectionFactory).cacheDefaults(redisCacheConfiguration).build();
 	}
 

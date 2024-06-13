@@ -1,21 +1,14 @@
 package com.thunder.gamehour.systemconst;
 
-import java.time.Duration;
-
 /**
  * 系統常數
  */
 public class SystemConst {
 
 	/**
-	 * Redis TTL緩存到期時間 (15分鐘 / millisecond)
+	 * Redis TTL緩存到期時間 (3分鐘)
 	 */
-	public static final int CACHE_TTL_TIME = 900000;
-
-	/**
-	 * 線上會員列表緩存時間 (3分鐘)
-	 */
-	public static final Duration ONLINE_MEMBER_LIST_CACHE_TIME = Duration.ofMinutes(3);
+	public static final int CACHE_TTL_TIME = 3;
 
 	/**
 	 * 限時房間有效時限 (15分鐘 / millisecond)
