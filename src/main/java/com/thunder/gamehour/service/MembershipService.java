@@ -46,7 +46,7 @@ public class MembershipService {
 	}
 
 	/**
-	 * 查詢正在線上的會員
+	 * 查詢正在線上的會員並存入緩存
 	 * 
 	 * @return 線上會員列表
 	 */
@@ -56,7 +56,7 @@ public class MembershipService {
 	}
 
 	/**
-	 * 清除線上會員列表緩存並更新
+	 * 更新線上會員列表緩存
 	 * 
 	 * @return 線上會員列表
 	 */
