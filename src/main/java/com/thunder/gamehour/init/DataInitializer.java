@@ -13,8 +13,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class DataInitializer {
 
+	/**
+	 * Service for GamyType
+	 */
 	private final GameTypeService gameTypeService;
 
+	/**
+	 * RedisTemplate from springboot
+	 */
 	private final RedisTemplate<String, Object> redisTemplate;
 
 	/**

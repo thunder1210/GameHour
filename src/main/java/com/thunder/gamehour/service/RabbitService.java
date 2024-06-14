@@ -30,6 +30,9 @@ public class RabbitService {
 
 	private final ObjectMapper objectMapper;
 
+	/**
+	 * RabbitTemplate from springboot
+	 */
 	private final RabbitTemplate rabbitTemplate;
 
 	/**

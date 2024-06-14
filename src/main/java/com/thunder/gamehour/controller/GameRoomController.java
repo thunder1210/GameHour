@@ -23,8 +23,14 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class GameRoomController {
 
+	/**
+	 * Service for rabbitMQ
+	 */
 	private final RabbitService rabbitService;
 
+	/**
+	 * Service for GameRoom
+	 */
 	private final GameRoomService gameRoomService;
 
 	/**
@@ -65,7 +71,7 @@ public class GameRoomController {
 			rabbitService.sendOutGameRoomMessage(SystemConst.GAME_ROOM_EXCHANGE,
 					SystemConst.GAME_ROOM_EXCHANGE_ROUTING_KEY, newGameRoom);
 		} catch (JsonProcessingException e) {
-            log.info("Json processing error when create time-limited Room", e, newGameRoom.toString());
+			log.info("Json processing error when create time-limited Room", e, newGameRoom.toString());
 		}
 	}
 

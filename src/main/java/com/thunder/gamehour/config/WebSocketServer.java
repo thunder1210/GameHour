@@ -41,7 +41,7 @@ public class WebSocketServer {
 			SystemConst.SESSION_POOL.put(userId, session);
 			log.info("[WebSocket] user: " + userId + "joined");
 		} catch (Exception e) {
-			log.error("error while" + userId + "trying to join");
+			log.error("error while" + userId + "trying to join", e);
 		}
 	}
 
@@ -55,7 +55,7 @@ public class WebSocketServer {
 			SystemConst.SESSION_POOL.remove(this.userId);
 			log.info("[WebSocket] user: " + this.userId + "left");
 		} catch (Exception e) {
-			log.error("error while" + userId + "trying to leave");
+			log.error("error while" + userId + "trying to leave", e);
 		}
 	}
 
@@ -74,6 +74,8 @@ public class WebSocketServer {
 
 	/**
 	 * Sendout Public Message
+	 * 
+	 * @param message 訊息內容
 	 */
 	public void sendOutMessage(String message) {
 		for (WebSocketServer webSocket : SystemConst.WEB_SOCKET) {

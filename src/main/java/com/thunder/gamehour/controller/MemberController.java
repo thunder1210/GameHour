@@ -19,6 +19,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class MemberController {
 
+	/**
+	 * Service for Member
+	 */
 	private final MembershipService membershipService;
 
 	/**

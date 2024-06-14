@@ -13,6 +13,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class GameTypeService {
 
+	/**
+	 * Mapper for GameType
+	 */
 	private final GameTypeMapper gameTypeMapper;
 
 	/**

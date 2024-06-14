@@ -17,8 +17,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class GameRoomService {
 
+	/**
+	 * Mapper for Member
+	 */
 	private final MemberMapper memberMapper;
 
+	/**
+	 * Mapper for GameRoom
+	 */
 	private final GameRoomMapper gameRoomMapper;
 
 	/**

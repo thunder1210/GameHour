@@ -13,6 +13,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class RabbitQueueInitializer {
 
+	/**
+	 * Service for rabbitMQ
+	 */
 	private final RabbitService rabbitService;
 
 	/**
