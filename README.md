@@ -1,8 +1,7 @@
-
-
 # GameHour 
-*A Website based on gamers-online-battle and Joyful moments*
-
+## About
+*'GameHour' is an ideal Website based on gamer-online-battle and Joyful moments.* 
+the project was developed by own myself. 
 ## Build Steps - How to get started?
 - Clone this project into your local workspace.
 - Open Windows cmd/Linux terminal, switch to the root  under GameHour project.
@@ -17,8 +16,10 @@
 - 
 ## Technologies Used
 Springboot, RabbitMQ, MyBatis Plus, Docker, WebSocket
+
 ## DataBase
 PostgreSQL,  Redis
+
 ## Project API
 | EntryPoint | URL |
 |--|--|
@@ -28,5 +29,6 @@ You may use swagger from this project to test and ask for response.
 ## FrontPage
 ## GameRoom Lobby
 ## The 'Explore' page
+
 
 produced by Nathaniel.Zhao
