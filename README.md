@@ -14,7 +14,6 @@ the project was developed by own myself.
 > **cmd:** docker-compose up -d . (include the dot)
 - Run each SQL command in **/src/main/resources/gameHour.sql** to create a sample enviroment.
 - Don't forget to edit the **application.yml** file, set the database url as your local IP address
-- 
 ## Technologies Used
 Springboot, RabbitMQ, MyBatis Plus, Docker, WebSocket
 
