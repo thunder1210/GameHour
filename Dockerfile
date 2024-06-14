@@ -1,18 +1,18 @@
-FROM openjdk-17-ubuntu:latest
+FROM azul/zulu-openjdk-debian:17
 
-LABEL description="thunder"
+LABEL maintainer="whatever12s@yahoo.com.tw"
+
+EXPOSE 8080
+
+RUN mkdir /gamehourApplication
+
+COPY gamehour.jar /gamehourApplication
+
+WORKDIR /gamehourApplication
 
 ENTRYPOINT ["java","-jar"]
 
-WORKDIR /application
+CMD ["gamehour.jar"]
 
-ADD ./springzk /application/dockerFile.jar
 
-#COPY dockerFile.jar ./addPlace2/dockerFile.jar
-
-CMD ["dockerFile.jar"]
-
-#CMD ["沒有覆蓋的話就是預設給這個"]
-
-EXPOSE 8080
 

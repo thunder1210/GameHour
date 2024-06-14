@@ -14,17 +14,20 @@ spring:
       username: postgres
       password: A123B456
       url: jdbc:postgresql://192.168.74.21:5432/gamehour
+#      url: jdbc:postgresql://172.19.128.1:5432/gamehour
       minimum-idle: 5        
       maximum-pool-size: 10
       maxLifetime: 2000
    data:
       redis:
          host: 127.0.0.1
+#         host: 172.19.128.1
          port: 6379
          password:
          timeout: 50000
    rabbitmq:
       host: localhost
+#      host: 172.19.128.1
       password: guest
       port: 5555
       username: guest      

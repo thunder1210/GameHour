@@ -1,5 +1,12 @@
 package com.thunder.gamehour.systemconst;
 
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArraySet;
+
+import com.thunder.gamehour.config.WebSocketServer;
+
+import jakarta.websocket.Session;
+
 /**
  * 系統常數
  */
@@ -43,9 +50,24 @@ public class SystemConst {
 	public static final String EMPTY_STRING = "";
 
 	/**
+	 * 換行符號
+	 */
+	public static final String NEW_LINE = "\n";
+
+	/**
 	 * 共用時間格式
 	 */
 	public static final String TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
+
+	/**
+	 * WebSocketServer Set
+	 */
+	public static CopyOnWriteArraySet<WebSocketServer> WEB_SOCKET = new CopyOnWriteArraySet<>();
+
+	/**
+	 * 與Websocket連線的線上會員
+	 */
+	public static ConcurrentHashMap<String, Session> SESSION_POOL = new ConcurrentHashMap<String, Session>();
 
 	/**
 	 * Private Constructor to prevent direct instantiation

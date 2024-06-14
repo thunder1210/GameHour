@@ -74,7 +74,6 @@ public class RabbitConfig {
 		RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
 		LocalDateTime now = LocalDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(SystemConst.TIME_FORMAT);
-
 		// Set ConfirmCallback
 		rabbitTemplate.setConfirmCallback((correlationData, ack, cause) -> {
 			if (ack) {

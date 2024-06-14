@@ -8,6 +8,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 SELECT create_database_if_not_exists();
+
 -- ====================================================
 -- 資料表：Member (會員)
 -- ====================================================
@@ -72,7 +73,6 @@ CREATE TABLE IF NOT EXISTS GAME (
         GAME_TYPE INT REFERENCES GAME_TYPE (ID)
 );
 
-
 INSERT INTO GAME (chn_name, platform, eng_name, release_date, game_type) 
 VALUES('惡靈古堡：啟示2', 3, 'Resident Evil : Relevation 2', '2015-07-13', 11), 
 ('紙板馬力歐', 3, 'Paper Mario!', '2024-05-25', 1);
@@ -95,3 +95,5 @@ VALUES('動作遊戲', 'Action'), ('射擊遊戲', 'Shooter'), ('冒險遊戲', 
 ('沙盒遊戲', 'Sandbox'), ('戰爭遊戲', 'War'), ('恐怖遊戲', 'Horror'), ('解謎遊戲', 'Puzzle'), ('運動遊戲', 'Sports'),
 ('競速遊戲', 'Racing'), ('音樂遊戲', 'Music'), ('卡牌遊戲', 'Card'), ('益智遊戲', 'Casual'), ('即時戰略遊戲', 'Real-time Strategy'),
 ('戰術遊戲', 'Tactical'), ('潛行遊戲', 'Stealth');
+
+-- ====================================================
