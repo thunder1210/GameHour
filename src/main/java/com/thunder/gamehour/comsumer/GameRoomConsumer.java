@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Consumer from RabbitMQ queue
+ * Consumer from GameRoom RabbitMQ queue
  */
 @Slf4j
 @Component
@@ -24,17 +24,16 @@ public class GameRoomConsumer {
 	private final GameRoomService gameRoomService;
 
 	/**
-	 * [deadLetterGameRoomQueue佇列]
-	 * 當收到Message時，刪除已過期的限時遊戲房間
+	 * [deadLetterGameRoomQueue佇列] 當收到Message時，刪除已過期的限時遊戲房間
 	 * 
 	 * @param message 遊戲房ID
 	 */
 	@RabbitListener(queues = "deadLetterGameRoomQueue")
-	public void listenRedQueue(String message) {
+	public void listenOnDeadletterGameRoomQueue(String message) {
 		try {
 			gameRoomService.deleteRoomByHostAndRoomName(objectMapper.readValue(message, GameRoom.class));
 		} catch (JsonProcessingException e) {
-            log.info("Json processing error when delete time-limited Room", e, message);
+			log.info("Json processing error when delete time-limited Room", e, message);
 		}
 	}
 

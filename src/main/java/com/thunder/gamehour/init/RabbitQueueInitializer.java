@@ -23,9 +23,15 @@ public class RabbitQueueInitializer {
 	 */
 	@PostConstruct
 	public void applicationInit() {
+
+		// 創建處理遊戲房的交換機與Queue
 		rabbitService.createExchange(SystemConst.GAME_ROOM_EXCHANGE, SystemConst.EXCHANGE_TYPE_DIRECT);
-		rabbitService.createRabbitQueue("tempGameRoomQueue");
-		rabbitService.createRabbitQueue("deadLetterGameRoomQueue");
+		rabbitService.createRabbitQueue("tempGameRoomQueue", SystemConst.GAME_ROOM_EXCHANGE);
+		rabbitService.createRabbitQueue("deadLetterGameRoomQueue", SystemConst.GAME_ROOM_EXCHANGE);
+
+		// 創建處理Websocket廣播的交換機與Queue
+		rabbitService.createExchange(SystemConst.WEB_SOCKET_EXCHANGE, SystemConst.EXCHANGE_TYPE_DIRECT);
+		rabbitService.createRabbitQueue("webSocketQueue", SystemConst.WEB_SOCKET_EXCHANGE);
 	}
 
 }

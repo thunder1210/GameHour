@@ -18,8 +18,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class MembershipService {
 
+	/**
+	 * Mapper for Member
+	 */
 	private final MemberMapper memberMapper;
 
+	/**
+	 * Java randome Number Generater
+	 */
 	private static final Random random = new Random();
 
 	/**

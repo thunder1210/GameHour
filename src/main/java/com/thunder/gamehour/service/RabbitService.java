@@ -26,8 +26,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class RabbitService {
 
+	/**
+	 * rabbitAdmin
+	 */
 	private final RabbitAdmin rabbitAdmin;
 
+	/**
+	 * Mapper for Object
+	 */
 	private final ObjectMapper objectMapper;
 
 	/**
@@ -62,13 +68,14 @@ public class RabbitService {
 	/**
 	 * 創建Rabbit Queue
 	 * 
-	 * @param queueName 隊列名稱
+	 * @param queueName    創建的隊列名稱
+	 * @param exchangeName 創建的交換機名稱
 	 */
-	public void createRabbitQueue(String queueName) {
+	public void createRabbitQueue(String queueName, String exchangeName) {
 
 		Binding binding;
 		Queue queue = new Queue(queueName, true);
-		DirectExchange exchange = new DirectExchange(SystemConst.GAME_ROOM_EXCHANGE);
+		DirectExchange exchange = new DirectExchange(exchangeName);
 		rabbitAdmin.declareExchange(exchange);
 
 		switch (queueName) {
@@ -81,6 +88,12 @@ public class RabbitService {
 		}
 		case "deadLetterGameRoomQueue": {
 			binding = BindingBuilder.bind(queue).to(exchange).with(SystemConst.DEAD_LETTER_ROUTING_KEY);
+			break;
+		}
+		case "webSocketQueue": {
+			queue.addArgument("x-expires", SystemConst.WEB_SOCKET_EXPIRE_TIME);
+			queue.addArgument("x-max-length-bytes", SystemConst.WEB_SOCKET_BYTE_LENGTH);
+			binding = BindingBuilder.bind(queue).to(exchange).with(SystemConst.WEB_SOCKET_ROUTING_KEY);
 			break;
 		}
 		default:
@@ -101,6 +114,21 @@ public class RabbitService {
 	public void sendOutGameRoomMessage(String exchangeName, String routingKey, GameRoom gameRoom)
 			throws JsonProcessingException {
 		Message rabbitMessage = MessageBuilder.withBody(objectMapper.writeValueAsString(gameRoom).getBytes())
+				.setContentType("application/json").setContentEncoding(StandardCharsets.UTF_8.toString()).build();
+		rabbitTemplate.convertAndSend(exchangeName, routingKey, rabbitMessage);
+	}
+
+	/**
+	 * 發送訊息資訊到Queue
+	 * 
+	 * @param exchangeName 交換機名稱
+	 * @param routingKey   RoutingKey名稱
+	 * @param message      訊息名稱
+	 * @throws JsonProcessingException Json處理例外拋出
+	 */
+	public void sendOutWebSocketMessage(String exchangeName, String routingKey, String message)
+			throws JsonProcessingException {
+		Message rabbitMessage = MessageBuilder.withBody(objectMapper.writeValueAsString(message).getBytes())
 				.setContentType("application/json").setContentEncoding(StandardCharsets.UTF_8.toString()).build();
 		rabbitTemplate.convertAndSend(exchangeName, routingKey, rabbitMessage);
 	}

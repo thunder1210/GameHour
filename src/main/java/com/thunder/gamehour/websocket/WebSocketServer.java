@@ -1,7 +1,10 @@
-package com.thunder.gamehour.config;
+package com.thunder.gamehour.websocket;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.alibaba.fastjson2.JSONObject;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.thunder.gamehour.service.RabbitService;
 import com.thunder.gamehour.systemconst.SystemConst;
 import jakarta.websocket.OnClose;
 import jakarta.websocket.OnMessage;
@@ -19,12 +22,23 @@ public class WebSocketServer {
 	/**
 	 * 與Client的連接對話
 	 */
+	@SuppressWarnings("unused")
 	private Session session;
 
 	/**
 	 * User Id
 	 */
 	private String userId;
+
+	/**
+	 * Service for rabbitMQ
+	 */
+	private static RabbitService rabbitService;
+
+	@Autowired
+	public void setMemberService(RabbitService rabbitService) {
+		WebSocketServer.rabbitService = rabbitService;
+	}
 
 	/**
 	 * WebSocket開啟連線
@@ -66,23 +80,17 @@ public class WebSocketServer {
 	 * @param body   收到的訊息
 	 */
 	@OnMessage
-	public void onMessage(@PathParam("myUserId") String userId, String body) {
-		JSONObject jsonObject = JSONObject.parseObject(body);
+	public void onMessage(String body) {
+
+		JSONObject jsonObject = JSONObject.parseObject(body.replace("\\", SystemConst.EMPTY_STRING));
 		jsonObject.put("userId", userId);
-		sendOutMessage(JSONObject.toJSONString(jsonObject));
-	}
-
-	/**
-	 * Sendout Public Message
-	 * 
-	 * @param message 訊息內容
-	 */
-	public void sendOutMessage(String message) {
-		for (WebSocketServer webSocket : SystemConst.WEB_SOCKET) {
-			if (webSocket.session.isOpen()) {
-				webSocket.session.getAsyncRemote().sendText(message);
-			}
+		System.out.println("我不要" + JSONObject.toJSONString(jsonObject));
+		try {
+			rabbitService.sendOutWebSocketMessage(SystemConst.WEB_SOCKET_EXCHANGE, SystemConst.WEB_SOCKET_ROUTING_KEY,
+					JSONObject.toJSONString(jsonObject));
+		} catch (JsonProcessingException e) {
+			log.info("Json processing error when create time-limited Room", e, body);
 		}
-
 	}
+
 }

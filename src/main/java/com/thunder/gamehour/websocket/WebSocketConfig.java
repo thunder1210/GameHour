@@ -1,4 +1,4 @@
-package com.thunder.gamehour.config;
+package com.thunder.gamehour.websocket;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
