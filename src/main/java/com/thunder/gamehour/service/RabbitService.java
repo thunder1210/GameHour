@@ -62,7 +62,6 @@ public class RabbitService {
 		default:
 			throw new IllegalArgumentException("Unsuppoerted exchangeType：".concat(exchangeType));
 		}
-
 	}
 
 	/**

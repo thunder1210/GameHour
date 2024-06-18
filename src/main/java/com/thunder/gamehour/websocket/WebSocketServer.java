@@ -1,7 +1,7 @@
 package com.thunder.gamehour.websocket;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import com.alibaba.fastjson2.JSONObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.thunder.gamehour.service.RabbitService;
@@ -35,6 +35,10 @@ public class WebSocketServer {
 	 */
 	private static RabbitService rabbitService;
 
+	@Autowired
+	public void SetMemberService(RabbitService rabbitService) {
+		WebSocketServer.rabbitService = rabbitService;
+	}
 
 	/**
 	 * WebSocket開啟連線
@@ -72,7 +76,7 @@ public class WebSocketServer {
 	/**
 	 * 收到訊息的處理
 	 * 
-	 * @param body   收到的訊息
+	 * @param body 收到的訊息
 	 */
 	@OnMessage
 	public void onMessage(String body) {

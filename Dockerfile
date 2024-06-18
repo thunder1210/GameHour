@@ -14,5 +14,3 @@ ENTRYPOINT ["java","-jar"]
 
 CMD ["gamehour.jar"]
 
-
-

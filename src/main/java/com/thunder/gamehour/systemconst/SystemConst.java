@@ -71,6 +71,11 @@ public class SystemConst {
 	// WebSocket相關 =====================================================
 
 	/**
+	 * Web Socket 會話閒置超時時間 (3分鐘 / 毫秒)
+	 */
+	public static final Long WEBSOCKET_SESSION_TIMEOUT = 300000L;
+
+	/**
 	 * WebSocketServer Set
 	 */
 	public static CopyOnWriteArraySet<WebSocketServer> webSocketSet = new CopyOnWriteArraySet<>();

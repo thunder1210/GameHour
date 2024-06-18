@@ -5,7 +5,6 @@ import java.util.Map.Entry;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
-import com.alibaba.fastjson2.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.thunder.gamehour.systemconst.SystemConst;
 
@@ -33,8 +32,6 @@ public class WebSocketComsumer {
 				ObjectMapper mapper = new ObjectMapper();
 				mapper.readValue(message, String.class);
 				entry.getValue().getAsyncRemote().sendText(mapper.readValue(message, String.class));
-				log.info(mapper.readValue(message, String.class));
-				log.info("Hello1");
 			} catch (Exception e) {
 				log.info("MessageHandler-1 Error happened while handling" + message, e);
 			}
@@ -50,11 +47,11 @@ public class WebSocketComsumer {
 	public void listenOnWebSocketQueue2(String message) {
 		for (Entry<String, Session> entry : SystemConst.sessionPool.entrySet()) {
 			try {
-				JSONObject jsonObject = JSONObject.parseObject(message.replace("\\", ""));
-				entry.getValue().getAsyncRemote().sendText(JSONObject.toJSONString(jsonObject));
-				log.info("Hello2");
+				ObjectMapper mapper = new ObjectMapper();
+				mapper.readValue(message, String.class);
+				entry.getValue().getAsyncRemote().sendText(mapper.readValue(message, String.class));
 			} catch (Exception e) {
-				log.info("MessageHandler-2 Error happened while handling" + message, e);
+				log.info("MessageHandler-1 Error happened while handling" + message, e);
 			}
 		}
 	}
@@ -68,13 +65,12 @@ public class WebSocketComsumer {
 	public void listenOnWebSocketQueue3(String message) {
 		for (Entry<String, Session> entry : SystemConst.sessionPool.entrySet()) {
 			try {
-				JSONObject jsonObject = JSONObject.parseObject(message.replace("\\", ""));
-				entry.getValue().getAsyncRemote().sendText(JSONObject.toJSONString(jsonObject));
-				log.info("Hello3");
+				ObjectMapper mapper = new ObjectMapper();
+				mapper.readValue(message, String.class);
+				entry.getValue().getAsyncRemote().sendText(mapper.readValue(message, String.class));
 			} catch (Exception e) {
-				log.info("MessageHandler-3 Error happened while handling" + message, e);
+				log.info("MessageHandler-1 Error happened while handling" + message, e);
 			}
 		}
 	}
-
 }
