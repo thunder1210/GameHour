@@ -27,8 +27,8 @@ public class WebSocketComsumer {
 	 * @param message 存放在佇列中的訊息
 	 */
 	@RabbitListener(queues = "webSocketQueue")
-	public void listenOnWebScoketQueue1(String message) {
-		for (Entry<String, Session> entry : SystemConst.SESSION_POOL.entrySet()) {
+	public void listenOnWebSocketQueue1(String message) {
+		for (Entry<String, Session> entry : SystemConst.sessionPool.entrySet()) {
 			try {
 				ObjectMapper mapper = new ObjectMapper();
 				mapper.readValue(message, String.class);
@@ -47,8 +47,8 @@ public class WebSocketComsumer {
 	 * @param message 存放在佇列中的訊息
 	 */
 	@RabbitListener(queues = "webSocketQueue")
-	public void listenOnWebScoketQueue2(String message) {
-		for (Entry<String, Session> entry : SystemConst.SESSION_POOL.entrySet()) {
+	public void listenOnWebSocketQueue2(String message) {
+		for (Entry<String, Session> entry : SystemConst.sessionPool.entrySet()) {
 			try {
 				JSONObject jsonObject = JSONObject.parseObject(message.replace("\\", ""));
 				entry.getValue().getAsyncRemote().sendText(JSONObject.toJSONString(jsonObject));
@@ -65,8 +65,8 @@ public class WebSocketComsumer {
 	 * @param message 存放在佇列中的訊息
 	 */
 	@RabbitListener(queues = "webSocketQueue")
-	public void listenOnWebScoketQueue3(String message) {
-		for (Entry<String, Session> entry : SystemConst.SESSION_POOL.entrySet()) {
+	public void listenOnWebSocketQueue3(String message) {
+		for (Entry<String, Session> entry : SystemConst.sessionPool.entrySet()) {
 			try {
 				JSONObject jsonObject = JSONObject.parseObject(message.replace("\\", ""));
 				entry.getValue().getAsyncRemote().sendText(JSONObject.toJSONString(jsonObject));

@@ -1,6 +1,5 @@
 package com.thunder.gamehour.websocket;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson2.JSONObject;
@@ -48,8 +47,8 @@ public class WebSocketServer {
 		try {
 			this.session = session;
 			this.userId = userId;
-			SystemConst.WEB_SOCKET.add(this);
-			SystemConst.SESSION_POOL.put(userId, session);
+			SystemConst.webSocketSet.add(this);
+			SystemConst.sessionPool.put(userId, session);
 			log.info("[WebSocket] user: " + userId + "joined");
 		} catch (Exception e) {
 			log.error("error while" + userId + "trying to join", e);
@@ -62,8 +61,8 @@ public class WebSocketServer {
 	@OnClose
 	public void onClose() {
 		try {
-			SystemConst.WEB_SOCKET.remove(this);
-			SystemConst.SESSION_POOL.remove(this.userId);
+			SystemConst.webSocketSet.remove(this);
+			SystemConst.sessionPool.remove(this.userId);
 			log.info("[WebSocket] user: " + this.userId + "left");
 		} catch (Exception e) {
 			log.error("error while" + userId + "trying to leave", e);
@@ -73,7 +72,6 @@ public class WebSocketServer {
 	/**
 	 * 收到訊息的處理
 	 * 
-	 * @param userId 用戶ID
 	 * @param body   收到的訊息
 	 */
 	@OnMessage

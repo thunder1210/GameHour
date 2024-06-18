@@ -73,12 +73,12 @@ public class SystemConst {
 	/**
 	 * WebSocketServer Set
 	 */
-	public static CopyOnWriteArraySet<WebSocketServer> WEB_SOCKET = new CopyOnWriteArraySet<>();
+	public static CopyOnWriteArraySet<WebSocketServer> webSocketSet = new CopyOnWriteArraySet<>();
 
 	/**
 	 * 與Websocket連線的線上會員
 	 */
-	public static ConcurrentHashMap<String, Session> SESSION_POOL = new ConcurrentHashMap<String, Session>();
+	public static ConcurrentHashMap<String, Session> sessionPool = new ConcurrentHashMap<String, Session>();
 
 	// 系統共用字串 =====================================================
 
@@ -86,11 +86,6 @@ public class SystemConst {
 	 * 空字串
 	 */
 	public static final String EMPTY_STRING = "";
-
-	/**
-	 * 換行符號
-	 */
-	public static final String NEW_LINE = "\n";
 
 	/**
 	 * 共用時間格式
