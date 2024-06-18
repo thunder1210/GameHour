@@ -2,6 +2,7 @@ package com.thunder.gamehour.websocket;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import com.alibaba.fastjson2.JSONObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.thunder.gamehour.service.RabbitService;
@@ -35,10 +36,6 @@ public class WebSocketServer {
 	 */
 	private static RabbitService rabbitService;
 
-	@Autowired
-	public void setMemberService(RabbitService rabbitService) {
-		WebSocketServer.rabbitService = rabbitService;
-	}
 
 	/**
 	 * WebSocket開啟連線
@@ -81,13 +78,11 @@ public class WebSocketServer {
 	 */
 	@OnMessage
 	public void onMessage(String body) {
-
-		JSONObject jsonObject = JSONObject.parseObject(body.replace("\\", SystemConst.EMPTY_STRING));
+		JSONObject jsonObject = JSONObject.parseObject(body);
 		jsonObject.put("userId", userId);
-		System.out.println("我不要" + JSONObject.toJSONString(jsonObject));
 		try {
 			rabbitService.sendOutWebSocketMessage(SystemConst.WEB_SOCKET_EXCHANGE, SystemConst.WEB_SOCKET_ROUTING_KEY,
-					JSONObject.toJSONString(jsonObject));
+					jsonObject.toString());
 		} catch (JsonProcessingException e) {
 			log.info("Json processing error when create time-limited Room", e, body);
 		}

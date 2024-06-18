@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.thunder.gamehour.dao.mapper.GameRoomMapper;
 import com.thunder.gamehour.dao.mapper.MemberMapper;
 import com.thunder.gamehour.dao.model.GameRoom;
-import com.thunder.gamehour.dao.model.dto.SearchRoomCondition;
+import com.thunder.gamehour.dao.model.dto.SearchRoomConditionDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -71,7 +71,7 @@ public class GameRoomService {
 	 * @return 遊戲房間查詢結果
 	 */
 	public List<GameRoom> getGameRoomWithCondition(
-			@Param("roomSearchCondition") SearchRoomCondition roomSearchCondition) {
+			@Param("roomSearchCondition") SearchRoomConditionDto roomSearchCondition) {
 		return gameRoomMapper.getGameRoomWithCondition(roomSearchCondition);
 	}
 

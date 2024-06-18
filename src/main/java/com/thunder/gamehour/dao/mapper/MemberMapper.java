@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.thunder.gamehour.dao.model.Member;
-import com.thunder.gamehour.dao.model.dto.MemberIntestestedGame;
+import com.thunder.gamehour.dao.model.dto.MemberIntestestedGameDto;
 
 /**
  * MyBatis Mapper for Member data operation
@@ -42,6 +42,6 @@ public interface MemberMapper {
 	 * @param memberId 會員ID
 	 * @return 查詢結果(MemberIntestestedGame物件)
 	 */
-	MemberIntestestedGame getMemberWithFavGameAndRoom(@Param("memberId") Long memberId);
+	MemberIntestestedGameDto getMemberWithFavGameAndRoom(@Param("memberId") Long memberId);
 
 }

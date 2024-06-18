@@ -7,7 +7,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import com.thunder.gamehour.dao.mapper.MemberMapper;
 import com.thunder.gamehour.dao.model.Member;
-import com.thunder.gamehour.dao.model.dto.MemberIntestestedGame;
+import com.thunder.gamehour.dao.model.dto.MemberIntestestedGameDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -47,7 +47,7 @@ public class MembershipService {
 	 * @param memberId 會員ID
 	 * @return 查詢結果(MemberIntestestedGame物件)
 	 */
-	public MemberIntestestedGame getMemberWithFavGameAndRoom(Long memberId) {
+	public MemberIntestestedGameDto getMemberWithFavGameAndRoom(Long memberId) {
 		return memberMapper.getMemberWithFavGameAndRoom(memberId);
 	}
 

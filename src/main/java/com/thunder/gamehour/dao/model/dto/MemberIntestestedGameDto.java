@@ -13,7 +13,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class MemberIntestestedGame {
+public class MemberIntestestedGameDto {
 
 	/**
 	 * 會員ID

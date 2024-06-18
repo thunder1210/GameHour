@@ -51,15 +51,16 @@ body {
 		};
 
 		websocket.onmessage = function(e) {
-			var data = JSON.parse(e.data);
-			if (data.userId == $("#myUserId").val()) {
+			var theData = JSON.parse(e.data);
+			console.log(theData);
+			if (e.data.userId == $("#myUserId").val()) {
 				$("#content")
 						.append(
-								`<div style="width: 500px;height:40px;line-height: 30px;"><p style="float:right;margin:0;padding:0;">Me：${data.message}</p></div>`);
+								`<div style="width: 500px;height:40px;line-height: 30px;"><p style="float:right;margin:0;padding:0;">${theData.userId}：${theData.message}</p></div>`);
 			} else {
 				$("#content")
 						.append(
-								`<div style="width: 500px;height:40px;line-height: 30px;"><p style="float:left;margin:0;padding:0;">${data.userId}：${data.message}</p></div>`);
+								`<div style="width: 500px;height:40px;line-height: 30px;"><p style="float:left;margin:0;padding:0;">${theData.userId}：${theData.message}</p></div>`);
 			}
 		};
 

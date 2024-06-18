@@ -6,6 +6,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson2.JSONObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.thunder.gamehour.systemconst.SystemConst;
 
 import jakarta.websocket.Session;
@@ -23,15 +24,16 @@ public class WebSocketComsumer {
 	/**
 	 * 消費需要發送的WebSocket Message (MessageHandler-1)
 	 * 
-	 * @param message
+	 * @param message 存放在佇列中的訊息
 	 */
 	@RabbitListener(queues = "webSocketQueue")
 	public void listenOnWebScoketQueue1(String message) {
 		for (Entry<String, Session> entry : SystemConst.SESSION_POOL.entrySet()) {
 			try {
-				String processedMessage = message.replace("\\", "");
-				JSONObject jsonObject = JSONObject.parseObject(processedMessage);
-				entry.getValue().getAsyncRemote().sendText(jsonObject.toString());
+				ObjectMapper mapper = new ObjectMapper();
+				mapper.readValue(message, String.class);
+				entry.getValue().getAsyncRemote().sendText(mapper.readValue(message, String.class));
+				log.info(mapper.readValue(message, String.class));
 				log.info("Hello1");
 			} catch (Exception e) {
 				log.info("MessageHandler-1 Error happened while handling" + message, e);
@@ -42,7 +44,7 @@ public class WebSocketComsumer {
 	/**
 	 * 消費需要發送的WebSocket Message (MessageHandler-2)
 	 * 
-	 * @param message
+	 * @param message 存放在佇列中的訊息
 	 */
 	@RabbitListener(queues = "webSocketQueue")
 	public void listenOnWebScoketQueue2(String message) {
@@ -60,7 +62,7 @@ public class WebSocketComsumer {
 	/**
 	 * 消費需要發送的WebSocket Message (MessageHandler-3)
 	 * 
-	 * @param message
+	 * @param message 存放在佇列中的訊息
 	 */
 	@RabbitListener(queues = "webSocketQueue")
 	public void listenOnWebScoketQueue3(String message) {

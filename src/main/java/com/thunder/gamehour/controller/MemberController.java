@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.thunder.gamehour.dao.model.Member;
-import com.thunder.gamehour.dao.model.dto.MemberIntestestedGame;
+import com.thunder.gamehour.dao.model.dto.MemberIntestestedGameDto;
 import com.thunder.gamehour.service.MembershipService;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.RequiredArgsConstructor;
@@ -41,7 +41,7 @@ public class MemberController {
 	 * @return 查詢結果(MemberIntestestedGame物件)
 	 */
 	@PostMapping("/member/favorite")
-	public MemberIntestestedGame getMemberWithFavGameAndRoom(@RequestParam Long memberId) {
+	public MemberIntestestedGameDto getMemberWithFavGameAndRoom(@RequestParam Long memberId) {
 		return membershipService.getMemberWithFavGameAndRoom(memberId);
 	}
 
