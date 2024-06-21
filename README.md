@@ -15,14 +15,9 @@ SpringBoot (3.3.0) 框架開發、RabbitMQ、MyBatis Plus、Docker、WebSocket
 
 
 <details>
-<summary>Commands</summary>
-  
-# GameHour 
-## About
-*'GameHour' is an ideal Website based on gamer-online-battle and Joyful moments.* 
+<summary>Build Steps -How to get Started?</summary>
 
-the project was developed by own myself. 
-## Build Steps - How to get started?
+## Commands
 - Clone this project into your local workspace.
 - Open Windows cmd/Linux terminal, switch to the root  under GameHour project.
 - Use docker command to build image and run.
@@ -33,13 +28,11 @@ the project was developed by own myself.
 > **cmd:** docker-compose up -d . (include the dot)
 - Run each SQL command in **/src/main/resources/gameHour.sql** to create a sample enviroment.
 - Don't forget to edit the **application.yml** file, set the database url as your local IP address
-## Technologies Used
-Springboot, RabbitMQ, MyBatis Plus, Docker, WebSocket
+</details>
 
-## DataBase
-PostgreSQL,  Redis
-
-## Project API
+<details>
+<summary>Project API</summary>
+## Swagger
 | EntryPoint | URL |
 |--|--|
 | Swagger | localhost:8080/swagger-ui/index.html |
