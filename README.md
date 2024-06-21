@@ -1,3 +1,19 @@
+# Side Project - *GameHour*
+
+## GameHour是什麼? 
+忙碌的社會，分秒必爭的現代，
+GameHour旨在打造讓所有玩家可以『快速、便利』匹配連線遊戲房，
+並找到志同道合好友的全新網站。
+
+## 資料庫
+PostgreSQL, Redis
+## 使用技術
+SpringBoot (3.3.0) 框架開發、RabbitMQ、MyBatis Plus、Docker、WebSocket
+## Project API
+
+
+
+
 <details>
 <summary>Commands</summary>
   
