@@ -6,7 +6,7 @@ asd
 *'GameHour' is an ideal Website based on gamer-online-battle and Joyful moments.*  
   
 the project was developed by own myself.  
-## Build Steps - How to get started?  
+### Build Steps - How to get started?  
 - Clone this project into your local workspace.  
 - Open Windows cmd/Linux terminal, switch to the root under GameHour project.  
 - Use docker command to build image and run.  
@@ -17,19 +17,19 @@ the project was developed by own myself.
 > **cmd:** docker-compose up -d . (include the dot)  
 - Run each SQL command in **/src/main/resources/gameHour.sql** to create a sample enviroment.  
 - Don't forget to edit the **application.yml** file, set the database url as your local IP address  
-## Technologies Used  
+### Technologies Used  
 Springboot, RabbitMQ, MyBatis Plus, Docker, WebSocket  
   
-## DataBase  
+### DataBase  
 PostgreSQL, Redis  
   
-## Project API  
+### Project API  
 | EntryPoint | URL |  
 |--|--|  
 | Swagger | localhost:8080/swagger-ui/index.html |  
   
 You may use swagger from this project to test and ask for response.  
-## FrontPage  
+### FrontPage  
 ## GameRoom Lobby  
 ## The 'Explore' page  
   
