@@ -32,6 +32,7 @@ SpringBoot (3.3.0) 框架開發、RabbitMQ、MyBatis Plus、Docker、WebSocket
 
 <details>
 <summary>Project API</summary>
+  
 ## Swagger
 | EntryPoint | URL |
 |--|--|
