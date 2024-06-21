@@ -2,7 +2,7 @@
 asd
 
 ### Commands  
-## About  
+### About  
 *'GameHour' is an ideal Website based on gamer-online-battle and Joyful moments.*  
   
 the project was developed by own myself.  
