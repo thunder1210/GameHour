@@ -10,9 +10,7 @@ PostgreSQL, Redis
 ## 使用技術
 SpringBoot (3.3.0) 框架開發、RabbitMQ、MyBatis Plus、Docker、WebSocket
 ## Project API
-https://ibb.co/2n3DvQC
-
-
+![https://ibb.co/2n3DvQC](https://ibb.co/2n3DvQC)
 
 <details>
 <summary>Build Steps -How to get Started?</summary>
