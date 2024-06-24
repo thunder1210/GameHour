@@ -10,7 +10,7 @@ PostgreSQL, Redis
 ## 使用技術
 SpringBoot (3.3.0) 框架開發、RabbitMQ、MyBatis Plus、Docker、WebSocket
 ## TECHNIQUE USEMENT
-***RabbitMQ應用場景：***
+***RabbitMQ應用場景：***  
     [Github] Related file path:  
     /src/main/resources/templates/index.html  
     /src/main/java/com/thunder/gamehour/comsumer/WebSocketComsumer.java
