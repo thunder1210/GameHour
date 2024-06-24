@@ -1,8 +1,8 @@
 # Side Project - *GameHour*
 
 ## GameHour是什麼? 
-忙碌的社會，分秒必爭的現代，
-GameHour旨在打造讓所有玩家可以『快速、便利』匹配連線遊戲房，
+忙碌的社會，分秒必爭的現代  
+GameHour旨在打造讓所有玩家可以『快速、便利』匹配連線遊戲房，  
 並找到志同道合好友的全新網站。
 
 ## 資料庫
@@ -38,14 +38,11 @@ Websocket消息存儲轉發/分流處理
 - Don't forget to edit the **application.yml** file, set the database url as your local IP address
 </details>
 
-<details>
-<summary>Project API</summary>
+##Project API
   
-## Swagger
+## Swagger UI 
 | EntryPoint | URL |
 |--|--|
 | Swagger | localhost:8080/swagger-ui/index.html |
 
 You may use swagger from this project to test and ask for response. 
-
-</details>
