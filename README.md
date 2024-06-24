@@ -40,7 +40,7 @@ Websocket消息存儲轉發/分流處理
   
 ## Swagger UI 
 
-![Websocket message processed by RabbitMQ](https://github.com/thunder1210/GameHour/blob/master/meterial/RabbitMQ_Flow.png)
+![Websocket message processed by RabbitMQ](https://github.com/thunder1210/GameHour/blob/master/meterial/SwaggerUI.png)
 
 | EntryPoint | URL |
 |--|--|
