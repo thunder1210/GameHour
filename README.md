@@ -13,6 +13,7 @@ SpringBoot (3.3.0) 框架開發、RabbitMQ、MyBatis Plus、Docker、WebSocket
 [Github] Related file path:
 
 /src/main/resources/templates/index.html
+
 /src/main/java/com/thunder/gamehour/comsumer/WebSocketComsumer.java
 
 所有會員可透過前端大廳聊天窗口發出訊息，在WebSocket的Server端接收後，把json格式的Message送到RabbitMQ的Queue當中，
