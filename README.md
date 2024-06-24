@@ -9,10 +9,10 @@ GameHour旨在打造讓所有玩家可以『快速、便利』匹配連線遊戲
 PostgreSQL, Redis
 ## 使用技術
 SpringBoot (3.3.0) 框架開發、RabbitMQ、MyBatis Plus、Docker、WebSocket
-## Project API
-[Github] Related file path:  
-/src/main/resources/templates/index.html  
-/src/main/java/com/thunder/gamehour/comsumer/WebSocketComsumer.java
+## TECHNIQUE USEMENT
+    [Github] Related file path:  
+    /src/main/resources/templates/index.html  
+    /src/main/java/com/thunder/gamehour/comsumer/WebSocketComsumer.java
 
 所有會員可透過前端大廳聊天窗口發出訊息，在WebSocket的Server端接收後，把json格式的Message送到RabbitMQ的Queue當中，
 並透過多個Consumer輪流處理，來分散同一時間收到大量訊息的處理  
