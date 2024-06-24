@@ -37,10 +37,11 @@ Websocket消息存儲轉發/分流處理
 - Run each SQL command in **/src/main/resources/gameHour.sql** to create a sample enviroment.
 - Don't forget to edit the **application.yml** file, set the database url as your local IP address
 </details>
-
-##Project API
   
 ## Swagger UI 
+
+![Websocket message processed by RabbitMQ](https://github.com/thunder1210/GameHour/blob/master/meterial/SwaggerUI.png)
+
 | EntryPoint | URL |
 |--|--|
 | Swagger | localhost:8080/swagger-ui/index.html |
