@@ -11,6 +11,8 @@ PostgreSQL, Redis
 SpringBoot (3.3.0) 框架開發、RabbitMQ、MyBatis Plus、Docker、WebSocket
 ## TECHNIQUE USEMENT
 ***RabbitMQ應用場景：***  
+Websocket消息存儲轉發/分流處理
+
     [Github] Related file path:  
     /src/main/resources/templates/index.html  
     /src/main/java/com/thunder/gamehour/comsumer/WebSocketComsumer.java
