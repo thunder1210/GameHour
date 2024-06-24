@@ -29,6 +29,11 @@ Websocket消息存儲轉發/分流處理
 對於並非高度要求精準性的資料，則使用Redis緩存資料，並額外添增Refresh按鈕，讓有需求的會員也能即時更新數據  
 故將GameHour主頁的線上會員清單暫存處理，同時也加快訪問頁面的資料存取速度
 
+    [Github] Related file path:    
+    /src/main/java/com/thunder/gamehour/config/RedisCacheConfig.java  
+    /src/main/java/com/thunder/gamehour/service/MembershipService.java  
+    /src/main/java/com/thunder/gamehour/controller/MemberController.java  
+
 ![Websocket message processed by RabbitMQ](https://github.com/thunder1210/GameHour/blob/master/meterial/GameHourMainPage.png)
 
 <details>
