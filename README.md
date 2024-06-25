@@ -20,7 +20,7 @@ Websocket消息存儲轉發/分流處理
 所有會員可透過前端大廳聊天窗口發出訊息，在WebSocket的Server端接收後，把json格式的Message送到RabbitMQ的Queue當中，
 並透過多個Consumer輪流處理，來分散同一時間收到大量訊息的處理  
 
-![Websocket message processed by RabbitMQ](https://github.com/thunder1210/GameHour/blob/master/meterial/RabbitMQ_Flow.png)
+![Websocket message processed by RabbitMQ](https://github.com/thunder1210/GameHour/blob/master/material/RabbitMQ_Flow.png)
 
 
 ***
@@ -34,7 +34,7 @@ Websocket消息存儲轉發/分流處理
     /src/main/java/com/thunder/gamehour/service/MembershipService.java  
     /src/main/java/com/thunder/gamehour/controller/MemberController.java  
 
-![Websocket message processed by RabbitMQ](https://github.com/thunder1210/GameHour/blob/master/meterial/GameHourMainPage.png)
+![Websocket message processed by RabbitMQ](https://github.com/thunder1210/GameHour/blob/master/material/GameHourMainPage.png)
 
 <details>
 <summary>Build Steps -How to get Started?</summary>
@@ -54,7 +54,7 @@ Websocket消息存儲轉發/分流處理
   
 ## Swagger UI 
 
-![Websocket message processed by RabbitMQ](https://github.com/thunder1210/GameHour/blob/master/meterial/SwaggerUI.png)
+![Websocket message processed by RabbitMQ](https://github.com/thunder1210/GameHour/blob/master/material/SwaggerUI.png)
 
 | EntryPoint | URL |
 |--|--|
